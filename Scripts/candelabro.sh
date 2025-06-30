@@ -1,22 +1,22 @@
 mkdir hc_done
 
 for file in *.hcp; do
-    file="${file%".hcp"}"
-    echo $file...
+    nome="${file%".hcp"}"
+    echo $nome...
 
-    python3 hc.py $file".hcp" tmp-$file.cnf
-    minisat -no-solve -dimacs=$file.cnf tmp-$file.cnf
+    python3 hc.py $file tmp-$nome.cnf
+    minisat -no-solve -dimacs=$nome.cnf tmp-$nome.cnf
 
-    rm tmp-$file.cnf
+    rm tmp-$nome.cnf
     
-    for solver in "hKis" "kissat" "kissat-mab-dc"; do
+    for solver in "kissat" "kissat-mab-dc"; do
 
-        echo "-- Solver:$solver --" >> $file.out
+        echo "-- Solver:$solver --" >> $nome.out
 
-        ./$solver $file.cnf >> $file.out
+        ./$solver $nome.cnf >> $nome.out
     done
 
-    rm $file.cnf
-    mv $file.hcp hc_done/
+    rm $nome.cnf
+    mv $file hc_done/
 
 done

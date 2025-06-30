@@ -76,6 +76,7 @@ def clq_to_cnf(g, k, original, out):
         f.write(cl)
     
     f.write("c\n")
+
     #Ninguém aparece duas vezes na clique
     for i in range(k):
 
@@ -87,6 +88,7 @@ def clq_to_cnf(g, k, original, out):
                     f.write("-"+ var(i,v) + " -" + var(j,v) + endcl)
 
     f.write("c\n")
+    
     #Quem está na clique consegue acessar todos os outros
     for n1 in range(n):
         for n2 in range(n):
