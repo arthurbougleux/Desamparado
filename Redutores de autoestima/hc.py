@@ -166,8 +166,6 @@ def hpcg_to_cnf(g, original, out):
 
 
 
-out = "out.cnf"
-
 infile = sys.argv[1]
 out = sys.argv[2]
 #print("Lendo grafo...")

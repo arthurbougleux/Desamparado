@@ -70,7 +70,6 @@ def colk_to_cnf(g, k, out, original):
         
         cl += endcl
         f.write(cl)
-        m += 1
 
     #Nenhum nó compartilha a cor com um vizinho
     for i in range(n):
@@ -83,7 +82,6 @@ def colk_to_cnf(g, k, out, original):
 
                         f.write("-" + var(i,c) + " -" + var(j, c) + endcl)
 
-                    m += k
 
     f.close()
 

@@ -1,4 +1,4 @@
-CC=gcc -W -Wall -O3 -DNDEBUG
+CC=gcc -W -Wall -O3 -DCOMPACT -DNDEBUG -DQUIET
 LD=gcc
 AR=ar
 
