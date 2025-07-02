@@ -1,0 +1,5 @@
+#define VERSION "1.9.5"
+#define IDENTIFIER "66e1864c2253b81e8347d8f5b2c41e2d234a4cf4"
+#define COMPILER "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0"
+#define FLAGS "-Wall -Wextra -O3 -DNDEBUG"
+#define DATE "Tue Jul 1 14:22:23 -03 2025 Linux Asbel 6.11.0-28-generic x86_64"

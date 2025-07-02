@@ -4,6 +4,8 @@ def read_clq(filename):
 
     f = open(filename, "r")
 
+    n = 0
+
     for l in f:
 
         if l.startswith("p"):
@@ -47,10 +49,10 @@ def clq_to_cnf(g, k, original, out):
                 if (i != j):
                     m += 1
     for n1 in range(n):
-        for n2 in range(n):
+        for n2 in range(n1):
             for i in range(k):
                 for j in range(k):
-                    if (not g[n1][n2]) and (n1 != n2) and (i != j):
+                    if (not g[n1][n2]) and (i != j):
                         m += 1
                 
     f = open(out, "w")
@@ -91,12 +93,12 @@ def clq_to_cnf(g, k, original, out):
     
     #Quem está na clique consegue acessar todos os outros
     for n1 in range(n):
-        for n2 in range(n):
+        for n2 in range(n1):
 
             for i in range(k):
                 for j in range(k):
 
-                    if (not g[n1][n2]) and (n1 != n2) and (i != j):
+                    if (not g[n1][n2]) and (i != j):
 
                         f.write("-"+ var(i,n1) + " -"+ var(j,n2) + endcl)
 
