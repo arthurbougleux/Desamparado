@@ -1,4 +1,5 @@
 mkdir col_done
+mkdir logs
 
 for file in *.col; do
     nome="${file%".col"}"
@@ -14,11 +15,15 @@ for file in *.col; do
         echo "-- Solver:$solver --" >> $nome.out
         echo "-- $k-Coloring --" >> $nome.out
 
+        echo "Solver: $solver"
+
         ./$solver $nome.cnf >> $nome.out
 
     done
 
     rm $nome.cnf
+
     mv $file col_done/
+    mv $nome.out logs/
 
 done
