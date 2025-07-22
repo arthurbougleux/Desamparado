@@ -1,5 +1,0 @@
-#define VERSION "3.1.1"
-#define COMPILER "gcc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0 -W -Wall -O3 -DCOMPACT -DNDEBUG -DQUIET"
-#define ID "unknown"
-#define BUILD "Wed Jul 2 17:08:46 -03 2025 Linux Asbel 6.11.0-28-generic x86_64"
-#define DIR "/home/arthur/Desktop/Desamparado/Solvers/2024/sequential/hKis/build"
