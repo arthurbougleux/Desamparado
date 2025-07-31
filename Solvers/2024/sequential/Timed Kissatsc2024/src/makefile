@@ -1,1 +1,0 @@
-solvers/2024/sequential/kissat-sc2024/archive/kissat-sc2024-d776b9e1/makefile

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 mkdir clq_done
 mkdir logs
 
@@ -17,13 +19,19 @@ for file in *.clq; do
 
         echo "Solver: $solver"
 
-        ./$solver $nome.cnf >> $nome.out
+        ./$solver --sat $nome.cnf >> $nome.out
 
     done
 
-    rm $nome.cnf
+    echo "-- Solver:hKis --" >> $nome.out
+    echo "-- $k-Coloring --" >> $nome.out
 
-    mv $file clq_done/
+    ./startexec_run_bva $nome.cnf dummy.out >> $nome.out
+
+    rm $nome.cnf
+    rm dummy.out
+
+    mv $file col_done/
     mv $nome.out logs/
 
 done
