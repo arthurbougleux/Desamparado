@@ -9,26 +9,39 @@ for file in *.hcp; do
 
     python3 hc.py $file $nome.cnf
 
-    for solver in "kissat" "kissat-mab-dc"; do
+    for solver in "kissat-original" "kissat-mab-dc"; do
 
-        echo "-- Solver:$solver --" >> $nome.out
-        echo "-- Hamiltonian Cycle --" >> $nome.out
+        echo "-- Solver:$solver --" >> $nome.$solver
+        echo "-- Ciclo Hamiltoniano --" >> $nome.$solver
 
-        echo "Solver: $solver"
-
-        ./$solver --sat $nome.cnf >> $nome.out
+        echo "$solver started"
+        ./$solver $nome.cnf >> $nome.$solver 2>&1 &
 
     done
 
-    echo "-- Solver:hKis --" >> $nome.out
-    echo "-- $k-Coloring --" >> $nome.out
+    echo "-- Solver:hKis --" >> $nome.hKis
+    echo "-- Ciclo Hamiltoniano --" >> $nome.hKis
 
-    ./startexec_run_bva $nome.cnf dummy.out >> $nome.out
+    echo "hKis started"
+    ./starexec_run_bva $nome.cnf dummy.out >> $nome.hKis 2>&1 &
+
+
+    wait $(jobs -p)
+    echo "$nome done"
+
+
+    cat $nome.kissat-original >> $nome.out
+    cat $nome.kissat-mab-dc >> $nome.out
+    cat $nome.hKis >> $nome.out
+
+    rm $nome.kissat-original
+    rm $nome.kissat-mab-dc
+    rm $nome.hKis
 
     rm $nome.cnf
-    rm dummy.out
 
-    mv $file col_done/
+
+    mv $file hc_done/
     mv $nome.out logs/
 
 

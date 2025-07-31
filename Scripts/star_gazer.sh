@@ -3,7 +3,7 @@
 mkdir clq_done
 mkdir logs
 
-for file in *.clq; do
+for file in *.col; do
     nome="${file%".clq"}"
     echo $nome...
 
@@ -12,26 +12,40 @@ for file in *.clq; do
     
     python3 clq.py $file $nome.cnf $k
 
-    for solver in "kissat" "kissat-mab-dc"; do
 
-        echo "-- Solver:$solver --" >> $nome.out
-        echo "-- $k-CLIQUE --" >> $nome.out
+    for solver in "kissat-original" "kissat-mab-dc"; do
 
-        echo "Solver: $solver"
+        echo "-- Solver:$solver --" >> $nome.$solver
+        echo "-- $k-CLIQUE --" >> $nome.$solver
 
-        ./$solver --sat $nome.cnf >> $nome.out
+        echo "$solver started"
+        ./$solver $nome.cnf >> $nome.$solver 2>&1 &
 
     done
 
-    echo "-- Solver:hKis --" >> $nome.out
-    echo "-- $k-Coloring --" >> $nome.out
+    echo "-- Solver:hKis --" >> $nome.hKis
+    echo "-- $k-CLIQUE --" >> $nome.hKis
 
-    ./startexec_run_bva $nome.cnf dummy.out >> $nome.out
+    echo "hKis started"
+    ./starexec_run_bva $nome.cnf dummy.out >> $nome.hKis 2>&1 &
+
+
+    wait $(jobs -p)
+    echo "$nome done"
+
+
+    cat $nome.kissat-original >> $nome.out
+    cat $nome.kissat-mab-dc >> $nome.out
+    cat $nome.hKis >> $nome.out
+
+    rm $nome.kissat-original
+    rm $nome.kissat-mab-dc
+    rm $nome.hKis
 
     rm $nome.cnf
-    rm dummy.out
 
-    mv $file col_done/
+
+    mv $file clq_done/
     mv $nome.out logs/
 
 done

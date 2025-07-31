@@ -12,31 +12,38 @@ for file in *.col; do
 
     python3 col.py $file $nome.cnf $k
 
-    for solver in "kissat" "kissat-mab-dc"; do
 
-        echo "-- Solver:$solver --" >> $nome.out
-        echo "-- $k-Coloring --" >> $nome.out
+    for solver in "kissat-original" "kissat-mab-dc"; do
 
-        echo "Solver: $solver"
+        echo "-- Solver:$solver --" >> $nome.$solver
+        echo "-- $k-Coloring --" >> $nome.$solver
 
-        ./$solver --sat $nome.cnf >> $nome.out
+        echo "$solver started"
+        ./$solver $nome.cnf >> $nome.$solver 2>&1 &
 
     done
 
-    mv $nome.out hKis/
-    mv $nome.cnf hKis/
-    cd hKis/
+    echo "-- Solver:hKis --" >> $nome.hKis
+    echo "-- $k-Coloring --" >> $nome.hKis
 
-    echo "-- Solver:hKis --" >> $nome.out
-    echo "-- $k-Coloring --" >> $nome.out
-    
-    ./starexec_run_bva $nome.cnf dummy.out >> $nome.out
+    echo "hKis started"
+    ./starexec_run_bva $nome.cnf dummy.out >> $nome.hKis 2>&1 &
 
-    mv $nome.out ../
-    mv $nome.cnf ../
-    cd ../
+
+    wait $(jobs -p)
+    echo "$nome done"
+
+
+    cat $nome.kissat-original >> $nome.out
+    cat $nome.kissat-mab-dc >> $nome.out
+    cat $nome.hKis >> $nome.out
+
+    rm $nome.kissat-original
+    rm $nome.kissat-mab-dc
+    rm $nome.hKis
 
     rm $nome.cnf
+
 
     mv $file col_done/
     mv $nome.out logs/
