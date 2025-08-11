@@ -23,29 +23,23 @@ for file in *.col; do
 
     done
 
-    echo "-- Solver:hKis --" >> $nome.hKis
-    echo "-- $k-CLIQUE --" >> $nome.hKis
+    echo "-- Solver:hkis --" >> $nome.hkis
+    echo "-- $k-CLIQUE --" >> $nome.hkis
 
-    echo "hKis started"
-    ./starexec_run_bva $nome.cnf dummy.out >> $nome.hKis 2>&1 &
+    echo "hkis started"
+    ./starexec_run_bva $nome.cnf dummy.out >> $nome.hkis 2>&1 &
 
 
     wait $(jobs -p)
     echo "$nome done"
 
-
-    cat $nome.kissat-original >> $nome.out
-    cat $nome.kissat-mab-dc >> $nome.out
-    cat $nome.hKis >> $nome.out
-
-    rm $nome.kissat-original
-    rm $nome.kissat-mab-dc
-    rm $nome.hKis
-
     rm $nome.cnf
+    rm *.drat
 
+    mv $nome.kissat-original logs/
+    mv $nome.kissat-mab-dc logs/
+    mv $nome.hkis logs/
 
     mv $file clq_done/
-    mv $nome.out logs/
 
 done
