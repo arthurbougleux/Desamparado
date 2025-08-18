@@ -39,8 +39,6 @@ def read_hcp(filename):
     return g
 
 
-
-
 def hpcg_to_cnf(g, original, out):
 
     #O i-ésimo vértice a ser visitado é j
@@ -166,11 +164,13 @@ def hpcg_to_cnf(g, original, out):
 
 
 
-infile = sys.argv[1]
-out = sys.argv[2]
-#print("Lendo grafo...")
-g = read_hcp(infile)
-n = len(g)
+if __name__ == "__main__":
+    
+    infile = sys.argv[1]
+    out = sys.argv[2]
+    #print("Lendo grafo...")
+    g = read_hcp(infile)
+    n = len(g)
 
-#print("Reduzindo instância...")
-hpcg_to_cnf(g, infile, out)
+    #print("Reduzindo instância...")
+    hpcg_to_cnf(g, infile, out)

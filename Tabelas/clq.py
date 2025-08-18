@@ -50,10 +50,11 @@ def clq_to_cnf(g, k, original, out):
                     m += 1
     for n1 in range(n):
         for n2 in range(n1):
-            for i in range(k):
-                for j in range(k):
-                    if (not g[n1][n2]) and (i != j):
-                        m += 1
+            if (not g[n1][n2]) and (not g[n2][n1]):
+                for i in range(k):
+                    for j in range(k):
+                        if (i != j):
+                            m+=1
                 
     f = open(out, "w")
     header = ["c\n",
@@ -77,7 +78,6 @@ def clq_to_cnf(g, k, original, out):
         cl += endcl
         f.write(cl)
     
-    f.write("\n")
 
     #Ninguém aparece duas vezes na clique
     for i in range(k):
@@ -89,30 +89,31 @@ def clq_to_cnf(g, k, original, out):
                 if (i != j):
                     f.write("-"+ var(i,v) + " -" + var(j,v) + endcl)
 
-    f.write("\n")
     
     #Quem está na clique consegue acessar todos os outros
     for n1 in range(n):
         for n2 in range(n1):
 
-            for i in range(k):
-                for j in range(k):
+            if (not g[n1][n2]) and (not g[n2][n1]):
 
-                    if (not g[n1][n2]) and (i != j):
+                for i in range(k):
+                    for j in range(k):
 
-                        f.write("-"+ var(i,n1) + " -"+ var(j,n2) + endcl)
+                        if (i != j):
+
+                            f.write("-"+ var(i,n1) + " -"+ var(j,n2) + endcl)
 
 
     f.close()
 
 
-infile = sys.argv[1]
-out = sys.argv[2]
-k = int(sys.argv[3])
+if __name__ == "__main__":
+    
+    infile = sys.argv[1]
+    out = sys.argv[2]
+    k = int(sys.argv[3])
 
-#print("Lendo grafo...")
-g = read_clq(infile)
-
-#print("Reduzindo instância...")
-
-clq_to_cnf(g, k, infile, out)
+    #print("Lendo grafo...")
+    g = read_clq(infile)
+    #print("Reduzindo instância...")
+    clq_to_cnf(g, k, infile, out)

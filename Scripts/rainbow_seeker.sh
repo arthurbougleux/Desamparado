@@ -18,16 +18,16 @@ for file in *.col; do
         echo "-- Solver:$solver --" >> $nome.$solver
         echo "-- $k-Coloring --" >> $nome.$solver
 
+        ./$solver --sat $nome.cnf >> $nome.$solver 2>&1 &
         echo "$solver started"
-        ./$solver $nome.cnf >> $nome.$solver 2>&1 &
 
     done
 
     echo "-- Solver:hkis --" >> $nome.hkis
     echo "-- $k-Coloring --" >> $nome.hkis
 
-    echo "hkis started"
     ./starexec_run_bva $nome.cnf dummy.out >> $nome.hkis 2>&1 &
+    echo "hkis started"
 
 
     wait $(jobs -p)

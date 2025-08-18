@@ -86,7 +86,9 @@ def colk_to_cnf(g, k, out, original):
     f.close()
 
 
-g = read_col(sys.argv[1])
+if __name__ == "__main__":
+    
+    g = read_col(sys.argv[1])
 
-k = int(sys.argv[3])
-colk_to_cnf(g, k, sys.argv[2], sys.argv[1])
+    k = int(sys.argv[3])
+    colk_to_cnf(g, k, sys.argv[2], sys.argv[1])

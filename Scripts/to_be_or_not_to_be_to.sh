@@ -14,17 +14,16 @@ for file in *.hcp; do
         echo "-- Solver:$solver --" >> $nome.$solver
         echo "-- Ciclo Hamiltoniano --" >> $nome.$solver
 
-        echo "$solver started"
         ./$solver $nome.cnf >> $nome.$solver 2>&1 &
+        echo "$solver started"
 
     done
 
     echo "-- Solver:hkis --" >> $nome.hkis
     echo "-- Ciclo Hamiltoniano --" >> $nome.hkis
 
-    echo "hkis started"
     ./starexec_run_bva $nome.cnf dummy.out >> $nome.hkis 2>&1 &
-
+    echo "hkis started"
 
     wait $(jobs -p)
     echo "$nome done"
