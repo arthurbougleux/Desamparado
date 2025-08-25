@@ -21,6 +21,9 @@ def read_col(filename):
 
     for l in file:
 
+        if l.startswith("c "):
+             continue
+        
         l = l.split()
         g[int(l[1]) - 1][int(l[2]) - 1] = 1
     
@@ -29,14 +32,26 @@ def read_col(filename):
     return g
 
 
+def calc_nvars(n, k):
+     return n*k
+
+def calc_nclauses(g, n, k):
+
+    m = n
+
+    for i in range(n):
+        for j in range(n):
+                if g[i][j]:
+                    m += k
+    return m
 
 def colk_to_cnf(g, k, out, original):
 
     f = open(out, "w")
 
     n = len(g)
-    nvars = n*k
-    m = n
+    nvars = calc_nvars(n, k)
+    m = calc_nclauses(g, n, k)
         
     #Me processa
     for i in range(n):

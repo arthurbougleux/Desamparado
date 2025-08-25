@@ -1,0 +1,7 @@
+-- Solver:hkis --
+-- -Coloring --
+Error: Could not open file DSJC125.1gb.cnf for reading
+kissat: error: can not read 'DSJC125.1gb.cnf'
+-- Tempo de CPU total = 0.000023 --
+c ['--target=1', '--walkinitially=true', '--chrono=true']
+c BVA failed! Solving with original solver

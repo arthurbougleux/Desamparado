@@ -1,0 +1,8 @@
+-- Solver:hkis --
+-- Ciclo Hamiltoniano --
+-- Tempo de CPU total = 199.475564 --
+c ['--target=1', '--walkinitially=true', '--chrono=true']
+c BVA ran successfully!
+-- Solver:hkis --
+-- Ciclo Hamiltoniano --
+-- Tempo de CPU total = 200.346712 --

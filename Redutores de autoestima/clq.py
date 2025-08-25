@@ -21,25 +21,19 @@ def read_clq(filename):
 
     for l in f:
 
+        if l.startswith("c "):
+             continue
+        
         e = list(map(int, l.strip().split()[1:]))
 
         g[e[0]-1][e[1]-1] = 1
     
     return g
 
+def calc_nvars(n, k):
+    return n * k
 
-
-def clq_to_cnf(g, k, original, out):
-    
-    #O i-ésimo elemento da clique é j
-    def var(i,j):
-        return str((i*n)+j + 1)
-
-
-    endcl = " 0\n"
-
-    n = len(g)
-    nvars = n * k
+def calc_nclauses(g, n, k):
 
     m = k
     #Me processa
@@ -55,6 +49,21 @@ def clq_to_cnf(g, k, original, out):
                     for j in range(k):
                         if (i != j):
                             m+=1
+                            
+    return m
+
+def clq_to_cnf(g, k, original, out):
+    
+    #O i-ésimo elemento da clique é j
+    def var(i,j):
+        return str((i*n)+j + 1)
+
+
+    endcl = " 0\n"
+
+    n = len(g)
+    nvars = calc_nvars(n * k)
+    m  = calc_nclauses(g, n, k)
                 
     f = open(out, "w")
     header = ["c\n",

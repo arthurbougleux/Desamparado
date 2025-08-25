@@ -39,18 +39,11 @@ def read_hcp(filename):
     return g
 
 
-def hpcg_to_cnf(g, original, out):
-
-    #O i-ésimo vértice a ser visitado é j
-    def var(i,j, n):
-        return str((i*n)+j + 1)
+def calc_nvars(n):
+    return n**2+n
+def calc_nclauses(g, n):
     
-    #Me processa
-    #def calc_m(g):
-    n = len(g)
-    nvars = n**2 + n
     m = 3*n + n + 1
-
     #Me processa
     for j in range(n):
         for i in range(n):
@@ -68,7 +61,20 @@ def hpcg_to_cnf(g, original, out):
                 if not g[j][k]:
                     m += 1
         
-        #return m
+    return m
+
+def hpcg_to_cnf(g, original, out):
+
+    #O i-ésimo vértice a ser visitado é j
+    def var(i,j, n):
+        return str((i*n)+j + 1)
+    
+    #Me processa
+    #def calc_m(g):
+    n = len(g)
+    nvars = calc_nvars(n)
+    m = calc_nclauses(g, n)
+
 
     endcl = " 0\n"
 
