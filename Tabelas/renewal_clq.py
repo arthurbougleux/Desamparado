@@ -33,10 +33,8 @@ for i, file in enumerate(filter(lambda x: x.endswith(".clq"), os.listdir(inst_di
     file_path = inst_dir + "/" + file
     print(file)
     
-    g = read_clq(file_path)
+    g, n, m = read_clq(file_path)
     gl = np.matrix(g)
-    n = len(g)
-    m = gl.sum()
 
     fscore = open(inst_dir + path["clq_score"])
     for line in fscore:
@@ -50,9 +48,8 @@ for i, file in enumerate(filter(lambda x: x.endswith(".clq"), os.listdir(inst_di
     print(k)
     print(m)
 
-    print("Stuck calc")
     nvars = calc_nvars(n, k)
-    nclauses = calc_nclauses(g, n, k)
+    nclauses = calc_nclauses(g, n, m, k)
 
     print(nvars)
     print(nclauses)
@@ -79,7 +76,7 @@ t["Tam. Clique"] = k_col
 t["Variáveis"] = var_col
 t["Clausulas"] = clause_col
 
-w = pd.ExcelWriter("dummy.xlsx", mode="w")
+w = pd.ExcelWriter("clq.xlsx", mode="w")
 
 t.to_excel(w, "clique", index=False)
 

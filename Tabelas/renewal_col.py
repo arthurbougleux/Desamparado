@@ -32,10 +32,7 @@ for i, file in enumerate(filter(lambda x: x.endswith(".col"), os.listdir(inst_di
     file_path = inst_dir + "/" + file
     print(file)
     
-    g = read_col(file_path)
-    gl = np.matrix(g)
-    n = len(g)
-    m = gl.sum()
+    g, n, m = read_col(file_path)
 
     fscore = open(inst_dir + path["col_score"])
     for line in fscore:
@@ -44,21 +41,8 @@ for i, file in enumerate(filter(lambda x: x.endswith(".col"), os.listdir(inst_di
             k = int(l[1])
     fscore.close()
 
-
-    print(n)
-    print(k)
-    print(m)
-    
-    print("Stuck calc")
     nvars = calc_nvars(n, k)
-    nclauses = calc_nclauses(g, n, k)
-
-    print(nvars)
-    print(nclauses)
-
-    print("Stuck calc 2")
-    nvars = calc_nvars(n, k)
-    nclauses = calc_nclauses(np.asanyarray(g), n, k)
+    nclauses = calc_nclauses(g, n, m, k)
 
     print(nvars)
     print(nclauses)
@@ -85,7 +69,7 @@ t["Cores"] = k_col
 t["Variáveis"] = var_col
 t["Clausulas"] = clause_col
 
-w = pd.ExcelWriter("dummy.xlsx", mode="w")
+w = pd.ExcelWriter("col.xlsx", mode="w")
 
 t.to_excel(w, "coloração", index=False)
 

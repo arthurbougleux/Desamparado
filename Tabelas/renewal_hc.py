@@ -32,17 +32,13 @@ for i, file in enumerate(filter(lambda x: x.endswith(".hcp"), os.listdir(inst_di
     file_path = inst_dir + "/" + file
     print(file)
     
-    g = read_hcp(file_path)
-    gl = np.matrix(g)
-    n = len(g)
-    m = gl.sum()
+    g, n, m = read_hcp(file_path)
 
     print(n)
     print(m)
 
-    print("Stuck calc")
     nvars = calc_nvars(n)
-    nclauses = calc_nclauses(g, n)
+    nclauses = calc_nclauses(g, n, m)
 
     print(nvars)
     print(nclauses)
@@ -68,7 +64,7 @@ t["Arestas"] = edge_col
 t["Variáveis"] = var_col
 t["Clausulas"] = clause_col
 
-w = pd.ExcelWriter("dummy.xlsx", mode="w")
+w = pd.ExcelWriter("hc.xlsx", mode="w")
 
 t.to_excel(w, "ciclo", index=False)
 

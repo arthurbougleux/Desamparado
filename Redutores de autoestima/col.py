@@ -11,58 +11,63 @@ def read_col(filename):
 
         if l.startswith("p"):
 
-            l = l.split()
-            n = int(l[2])
-            m = int(l[3])
-
+            n, _ = map(int, l.split()[2:])
             break
 
+
     g = [ [0 for i in range(n)] for i in range(n) ]
+
+    m = 0
 
     for l in file:
 
         if l.startswith("c "):
              continue
         
-        l = l.split()
-        g[int(l[1]) - 1][int(l[2]) - 1] = 1
+        i, j = map(lambda x: int(x) - 1, l.split()[1:])
+
+        if j > i:
+             tmp = i
+             i = j
+             j = tmp
+
+        if not g[i][j]:
+            m += 1
+        g[i][j] = 1
     
     file.close()
 
-    return g
+    return g, n, m
 
 
 def calc_nvars(n, k):
      return n*k
 
-def calc_nclauses(g, n, k):
+def calc_nclauses(g, n, m, k):
 
-    m = n
-
-    for i in range(n):
-        for j in range(n):
+    nclauses = n
+    
+    #Me processa
+    '''    for i in range(n):
+        for j in range(i):
                 if g[i][j]:
-                    m += k
-    return m
+                    nclauses += k'''
+    
+    nclauses += m * k
+    return nclauses
 
-def colk_to_cnf(g, k, out, original):
+def colk_to_cnf(g, n, m, k, out, original):
 
     f = open(out, "w")
 
     n = len(g)
     nvars = calc_nvars(n, k)
-    m = calc_nclauses(g, n, k)
-        
-    #Me processa
-    for i in range(n):
-        for j in range(n):
-                if g[i][j]:
-                    m += k
+    nclauses = calc_nclauses(g, n, m, k)
 
     header = ["c\n",
                 "c Reduzido de "+str(k)+"-coloração para SAT\n",
                 "c Arquivo original: "+original,
-                "c\n", ("p cnf " + str(nvars) + " " + str(m) + "\n")
+                "c\n", ("p cnf " + str(nvars) + " " + str(nclauses) + "\n")
                 ]
     f.writelines(header)
 
@@ -88,13 +93,11 @@ def colk_to_cnf(g, k, out, original):
 
     #Nenhum nó compartilha a cor com um vizinho
     for i in range(n):
-
-        for j in range(n):
+        for j in range(i):
 
                 if g[i][j]:
 
                     for c in range(k):
-
                         f.write("-" + var(i,c) + " -" + var(j, c) + endcl)
 
 
@@ -103,7 +106,7 @@ def colk_to_cnf(g, k, out, original):
 
 if __name__ == "__main__":
     
-    g = read_col(sys.argv[1])
+    g, n, m = read_col(sys.argv[1])
 
     k = int(sys.argv[3])
-    colk_to_cnf(g, k, sys.argv[2], sys.argv[1])
+    colk_to_cnf(g, n, m, k, sys.argv[2], sys.argv[1])

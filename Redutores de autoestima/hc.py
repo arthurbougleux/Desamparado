@@ -6,7 +6,7 @@ def read_hcp(filename):
     
     file = open(filename, "r")
 
-    n = 0
+    n = m = 0
 
     for l in file:
 
@@ -27,43 +27,51 @@ def read_hcp(filename):
     for l in file:
 
         l = list(map(int, l.strip().split()))
-
         if l[0] <= 0:
             break
 
         g[l[0] - 1][l[1] - 1] = 1
 
+        m += 1
+
 
     file.close()
 
-    return g
+    return g, n, m
 
 
 def calc_nvars(n):
-    return n**2+n
-def calc_nclauses(g, n):
+    return n**2 
+
+def calc_nclauses(g, n, m):
     
-    m = 3*n + n + 1
+    nclauses = 2*n
     #Me processa
-    for j in range(n):
+    '''    for j in range(n):
         for i in range(n):
-            for k in range(i, n+1):
-                if (i != k) and (not (i == 0 and k == n)):
-                    m += 1
-    for i in range(n+1):
+            for k in range(i):
+                    nclauses += 1'''
+    
+    nclauses += n * (( n * (n-1))//2)
+
+    '''    for i in range(n):
         for j in range(n):
             for k in range(n):
                 if j != k:
-                    m += 1
-    for i in range(n):
+                    nclauses += 1'''
+    
+    nclauses += n * (n * (n-1))
+
+    '''    for i in range(n):
         for j in range(n):
             for k in range(n):
-                if not g[j][k]:
-                    m += 1
+                if not g[j][k] and (j != k): 
+                    nclauses += 1'''
+    nclauses += n * ((n**2) - m - n)
         
-    return m
+    return nclauses
 
-def hpcg_to_cnf(g, original, out):
+def hpcg_to_cnf(g, n, m, original, out):
 
     #O i-ésimo vértice a ser visitado é j
     def var(i,j, n):
@@ -71,9 +79,8 @@ def hpcg_to_cnf(g, original, out):
     
     #Me processa
     #def calc_m(g):
-    n = len(g)
     nvars = calc_nvars(n)
-    m = calc_nclauses(g, n)
+    nclauses = calc_nclauses(g, n, m)
 
 
     endcl = " 0\n"
@@ -85,20 +92,13 @@ def hpcg_to_cnf(g, original, out):
               "c Reduzido de ciclo hamiltoniano para SAT\n", "c\n",
               "c Arquivo original: "+ original + "\n",
               "c\n",
-              "p cnf " + str(nvars) + " " + str(m) + "\n"
+              "p cnf " + str(nvars) + " " + str(nclauses) + "\n"
               ]
     
     f.writelines(header)
-
-    #print("\tPrimeira categoria...")
-    #Primeiro e último nós são iguais #2n
-    for j in range(n):
-        f.write("-" + var(0, j, n) + " " + var(n, j, n) + endcl)
-        f.write(var(0, j, n) + " -" + var(n, j, n) + endcl)
     
 
-    #print("\tSegunda categoria...")
-    #Todos os vértices estão presentes #n
+    #Todos os vértices estão presentes
     for j in range(n):
 
         cl = ""
@@ -112,22 +112,8 @@ def hpcg_to_cnf(g, original, out):
         f.write(cl)
 
 
-    #print("\tTerceira categoria...")
-    #Apenas o nó inicial é visitado várias vezes
-    for j in range(n):
-
-        for i in range(n):
-
-            for k in range(i, n+1):
-
-                if (i != k) and (not (i == 0 and k == n)):
-                    f.write("-" + var(i, j, n) + " -" + var(k, j, n) + endcl)
-                    #tmp.write("c -x" + str(i+1)+"," +str(j+1) + " -x" +str(k+1)+ "," +str(j+1) +"\n")
-
-
-    #print("\tQuarta categoria...")
     #Todas as posições do percurso são preenchidas
-    for i in range(n+1):
+    for i in range(n):
 
         cl = ""
 
@@ -139,9 +125,20 @@ def hpcg_to_cnf(g, original, out):
         f.write(cl)
 
 
-    #print("\tQuinta categoria...")
+    #Nenhum nó aparece duas vezes na solução
+    for j in range(n):
+
+        for i in range(n):
+
+            for k in range(i):
+                    
+                    f.write("-" + var(i, j, n) + " -" + var(k, j, n) + endcl)
+
+
+
+
     #Dois nós não ocupam a mesma posição
-    for i in range(n+1):
+    for i in range(n):
 
         for j in range(n):
 
@@ -153,7 +150,6 @@ def hpcg_to_cnf(g, original, out):
 
 
 
-    #print("\tSexta categoria...")
     #Se não tem aresta, j e k não podem estar um seguido do outro
     for i in range(n):
 
@@ -161,10 +157,8 @@ def hpcg_to_cnf(g, original, out):
 
             for k in range(n):
 
-                if not g[j][k]:
-                    f.write("-" + var(i, j, n) + " -" + var(i+1, k, n) + endcl)
-
-
+                if not g[j][k] and (j != k): #Algumas instâncias são direcionadas
+                    f.write("-" + var(i, j, n) + " -" + var(((i+1) % n), k, n) + endcl)
 
     f.close()
 
@@ -175,8 +169,10 @@ if __name__ == "__main__":
     infile = sys.argv[1]
     out = sys.argv[2]
     #print("Lendo grafo...")
-    g = read_hcp(infile)
-    n = len(g)
+    g, n, m = read_hcp(infile)
+    for i in range(len(g)):
+        if (g[i][i]):
+            print("Reflexão")
 
     #print("Reduzindo instância...")
-    hpcg_to_cnf(g, infile, out)
+    hpcg_to_cnf(g, n, m, infile, out)
