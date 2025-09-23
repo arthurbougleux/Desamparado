@@ -74,7 +74,7 @@ def calc_nclauses(g, n, m):
 def hpcg_to_cnf(g, n, m, original, out):
 
     #O i-ésimo vértice a ser visitado é j
-    def var(i,j, n):
+    def var(i,j):
         return str((i*n)+j + 1)
     
     #Me processa
@@ -105,7 +105,7 @@ def hpcg_to_cnf(g, n, m, original, out):
 
         for i in range(n):
 
-            cl += var(i, j, n) + " "
+            cl += var(i, j) + " "
             
 
         cl += endcl
@@ -119,7 +119,7 @@ def hpcg_to_cnf(g, n, m, original, out):
 
         for j in range(n):
 
-            cl += var(i, j, n) + " "
+            cl += var(i, j) + " "
 
         cl += endcl
         f.write(cl)
@@ -130,9 +130,9 @@ def hpcg_to_cnf(g, n, m, original, out):
 
         for i in range(n):
 
-            for k in range(i):
+            for k in range(i+1, n):
                     
-                    f.write("-" + var(i, j, n) + " -" + var(k, j, n) + endcl)
+                    f.write("-" + var(i, j) + " -" + var(k, j) + endcl)
 
 
 
@@ -142,11 +142,9 @@ def hpcg_to_cnf(g, n, m, original, out):
 
         for j in range(n):
 
-            for k in range(n):
+            for k in range(j+1, n):
 
-                if j != k:
-
-                    f.write("-" + var(i, j, n) + " -" + var(i, k, n) + endcl)
+                    f.write("-" + var(i, j) + " -" + var(i, k) + endcl)
 
 
 
@@ -158,7 +156,7 @@ def hpcg_to_cnf(g, n, m, original, out):
             for k in range(n):
 
                 if not g[j][k] and (j != k): #Algumas instâncias são direcionadas
-                    f.write("-" + var(i, j, n) + " -" + var(((i+1) % n), k, n) + endcl)
+                    f.write("-" + var(i, j) + " -" + var(((i+1) % n), k) + endcl)
 
     f.close()
 
@@ -170,9 +168,6 @@ if __name__ == "__main__":
     out = sys.argv[2]
     #print("Lendo grafo...")
     g, n, m = read_hcp(infile)
-    for i in range(len(g)):
-        if (g[i][i]):
-            print("Reflexão")
 
     #print("Reduzindo instância...")
     hpcg_to_cnf(g, n, m, infile, out)

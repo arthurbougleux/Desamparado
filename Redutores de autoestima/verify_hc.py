@@ -1,34 +1,52 @@
 from hc import *
-import itertools
+import sys
 
-g, n, _ = read_hcp("SH_64.hcp")
+def read_sol(file, n):
 
-sol = []
+    fsol = open(file, "r")
 
-fsol = open("sol", "r")
+    sol = []
+    for l in fsol:
 
-for l in fsol:
+        if (l.startswith("v ")):
+            print(l)
 
-    if l.startswith("v "):
+            posvals = list(filter(lambda x: x > 0, map(int, l.split()[1:])))
 
-        parval = list(filter(lambda x: x > 0, map(int, l.split()[1:])))
-        print(parval)
+            for var in posvals:
+                pos = (var-1)//n
+                no = (var-1)%n
+                sol.append({"pos":pos, "no":no})
 
-        for var in parval:
-            pos = (var-1)//n
-            no = (var-1)%n
-            sol.append(no)
+    sol.sort(key=lambda x : x["pos"])
+    return sol
 
+
+g, n, _ = read_hcp(sys.argv[1])
+
+sol = read_sol(sys.argv[2], n)
 print(sol)
+
+
+
 correto = True
 for i in range(len(sol)-1):
-        if not (g[sol[i]][sol[i+1]]):
-            print(i)
-            print(sol[i])
-            correto = False
-            break   
+
+    n1 = sol[i]["no"]
+    n2 = sol[i+1]["no"]
+
+    if not g[n1][n2]:
+        correto = False
+        break
+
+if not g[sol[len(sol)-1]["no"]][sol[0]["no"]]:
+    correto = False
+
+
+
+print("Corr: ", correto)
 
 if not correto:
     print("Não é ciclo")
-if correto:
+else:
      print("Ciclo")
