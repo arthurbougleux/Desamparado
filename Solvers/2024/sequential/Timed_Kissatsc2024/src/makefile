@@ -1,0 +1,1 @@
+/home/arthur/Desktop/Desamparado/Solvers/2024/sequential/Timed_Kissatsc2024/makefile

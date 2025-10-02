@@ -10,7 +10,7 @@ def read_clq(filename):
 
         if l.startswith("p"):
 
-            n = int(l.strip().split()[2])
+            n, _ = list(map(int, (l.strip().split()[2:])))
             break
     
     if n == 0:
@@ -19,40 +19,53 @@ def read_clq(filename):
 
     g = [ [0 for i in range(n)] for i in range(n) ]
 
+    m = 0
     for l in f:
 
         if l.startswith("c "):
              continue
+        if l.startswith("n "):
+            print("Não era bem o formato que eu esperava")
+            exit(1)
         
-        e = list(map(int, l.strip().split()[1:]))
+        i, j = map(lambda x: int(x)-1, l.strip().split()[1:])
 
-        g[e[0]-1][e[1]-1] = 1
+        if j > i:
+             tmp = i
+             i = j
+             j = tmp
+
+        if not g[i][j]:
+            m += 1
+        g[i][j] = 1
     
-    return g
+    return g, n, m
 
 def calc_nvars(n, k):
     return n * k
 
-def calc_nclauses(g, n, k):
+def calc_nclauses(g, n, m, k):
 
-    m = k
+    nclauses = k
     #Me processa
-    for i in range(k):
-        for j in range(k):
+    '''    for i in range(k):
+        for j in range(i):
             for v in range(n):
                 if (i != j):
-                    m += 1
-    for n1 in range(n):
+                    m += 1'''
+    nclauses += n * (k * (k-1) //2)
+
+    '''    for n1 in range(n):
         for n2 in range(n1):
-            if (not g[n1][n2]) and (not g[n2][n1]):
+            if not (g[n1][n2]):
                 for i in range(k):
                     for j in range(k):
                         if (i != j):
-                            m+=1
-                            
-    return m
+                            nclauses+=1'''
+    nclauses += (((n * (n-1)) //2) - m) * (k**2 - k)
+    return nclauses
 
-def clq_to_cnf(g, k, original, out):
+def clq_to_cnf(g, n, m, k, original, out):
     
     #O i-ésimo elemento da clique é j
     def var(i,j):
@@ -61,15 +74,14 @@ def clq_to_cnf(g, k, original, out):
 
     endcl = " 0\n"
 
-    n = len(g)
-    nvars = calc_nvars(n * k)
-    m  = calc_nclauses(g, n, k)
+    nvars = calc_nvars(n, k)
+    nclauses  = calc_nclauses(g, n, m, k)
                 
     f = open(out, "w")
     header = ["c\n",
                 "c Reduzido de "+str(k)+"-CLIQUE para SAT\n",
                 "c Arquivo original: "+original +"\n",
-                "c\n", ("p cnf " + str(nvars) + " " + str(m) + "\n")
+                "c\n", ("p cnf " + str(nvars) + " " + str(nclauses) + "\n")
                 ]
 
     f.writelines(header)
@@ -91,7 +103,7 @@ def clq_to_cnf(g, k, original, out):
     #Ninguém aparece duas vezes na clique
     for i in range(k):
 
-        for j in range(k):
+        for j in range(i):
 
             for v in range(n):
 
@@ -103,7 +115,7 @@ def clq_to_cnf(g, k, original, out):
     for n1 in range(n):
         for n2 in range(n1):
 
-            if (not g[n1][n2]) and (not g[n2][n1]):
+            if not (g[n1][n2]):
 
                 for i in range(k):
                     for j in range(k):
@@ -123,6 +135,7 @@ if __name__ == "__main__":
     k = int(sys.argv[3])
 
     #print("Lendo grafo...")
-    g = read_clq(infile)
+    g, n, m = read_clq(infile)
+
     #print("Reduzindo instância...")
-    clq_to_cnf(g, k, infile, out)
+    clq_to_cnf(g, n, m, k, infile, out)

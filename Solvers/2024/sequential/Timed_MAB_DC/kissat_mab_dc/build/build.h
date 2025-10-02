@@ -1,0 +1,5 @@
+#define VERSION "1.0.3"
+#define COMPILER "gcc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0 -W -Wall -O3 -DNEMBEDDED -DNDEBUG -DNMETRICS -DNSTATISTICS"
+#define ID "79d8d8f20465e71fd2b0f193b468898cd803a59a"
+#define BUILD "Mon Sep 22 15:51:35 -03 2025 Linux Eyvel 6.8.0-83-generic x86_64"
+#define DIR "/home/arthur/Desktop/Desamparado/Solvers/2024/sequential/Timed_MAB_DC/kissat_mab_dc/build"

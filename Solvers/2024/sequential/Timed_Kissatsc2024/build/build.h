@@ -1,5 +1,5 @@
 #define VERSION "sc2024"
 #define COMPILER "gcc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0 -W -Wall -O3 -DNDEBUG"
 #define ID "d776b9e1002a822b821e1926835145300580fbea"
-#define BUILD "Sun Jun 29 00:50:36 -03 2025 Linux Asbel 6.11.0-26-generic x86_64"
-#define DIR "/home/arthur/Desktop/Desamparado/SAT solvers/2024/sequential/kissat-sc2024/archive/kissat-sc2024-d776b9e1/build"
+#define BUILD "Mon Sep 22 15:53:48 -03 2025 Linux Eyvel 6.8.0-83-generic x86_64"
+#define DIR "/home/arthur/Desktop/Desamparado/Solvers/2024/sequential/Timed_Kissatsc2024/build"

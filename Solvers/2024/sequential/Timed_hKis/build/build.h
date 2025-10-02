@@ -1,0 +1,5 @@
+#define VERSION "3.1.1"
+#define COMPILER "gcc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0 -W -Wall -O3 -DCOMPACT -DNDEBUG -DQUIET"
+#define ID "unknown"
+#define BUILD "Mon Sep 22 15:52:04 -03 2025 Linux Eyvel 6.8.0-83-generic x86_64"
+#define DIR "/home/arthur/Desktop/Desamparado/Solvers/2024/sequential/Timed_hKis/build"
