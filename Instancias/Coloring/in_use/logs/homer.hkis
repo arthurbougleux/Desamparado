@@ -1,0 +1,6 @@
+-- Solver:hkis --
+-- 13-Coloring --
+-- Tempo de CPU total = 0.250236 --
+c ['--target=1', '--walkinitially=true', '--chrono=true']
+c BVA ran successfully!
+s UNSATISFIABLE

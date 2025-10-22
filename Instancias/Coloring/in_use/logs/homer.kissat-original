@@ -1,0 +1,4 @@
+-- Solver:kissat-original --
+-- 13-Coloring --
+kissat: error: homer.cnf:1: parse error: more than one clause missing (try '--relaxed' parsing)
+-- Tempo de CPU total = 0.003330 --

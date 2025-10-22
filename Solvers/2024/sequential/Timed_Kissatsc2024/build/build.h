@@ -1,5 +1,5 @@
 #define VERSION "sc2024"
 #define COMPILER "gcc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0 -W -Wall -O3 -DNDEBUG"
 #define ID "d776b9e1002a822b821e1926835145300580fbea"
-#define BUILD "Mon Sep 22 15:53:48 -03 2025 Linux Eyvel 6.8.0-83-generic x86_64"
+#define BUILD "Mon Oct 6 16:57:52 -03 2025 Linux Eyvel 6.8.0-85-generic x86_64"
 #define DIR "/home/arthur/Desktop/Desamparado/Solvers/2024/sequential/Timed_Kissatsc2024/build"
