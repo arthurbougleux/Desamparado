@@ -14,18 +14,18 @@ def read_sol(file, n):
             posvals = list(filter(lambda x: x > 0, map(int, l.split()[1:])))
 
             for var in posvals:
-                pos = (var-1)//n
-                no = (var-1)%n
+                pos, no = unpack_lit(var, n)
                 sol.append({"pos":pos, "no":no})
 
     sol.sort(key=lambda x : x["pos"])
     return sol
 
 
-g, n, _ = read_bel(sys.argv[1])
+g, n, _ = read_hcp(sys.argv[1])
 
 sol = read_sol(sys.argv[2], n)
-print(sol)
+for l in sol:
+    print(l["no"], end=" ")
 
 
 
@@ -35,11 +35,11 @@ for i in range(len(sol)-1):
     n1 = sol[i]["no"]
     n2 = sol[i+1]["no"]
 
-    if not g[n1][n2]:
+    if not (g[n1][n2] or g[n2][n1]):
         correto = False
         break
 
-if not g[sol[len(sol)-1]["no"]][sol[0]["no"]]:
+if not (g[sol[len(sol)-1]["no"]][sol[0]["no"]] or g[sol[0]["no"]][sol[len(sol)-1]["no"]]):
     correto = False
 
 
