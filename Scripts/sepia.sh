@@ -15,30 +15,39 @@ for file in *.col; do
 
     for solver in "kissat-original" "kissat-mab-dc"; do
 
-        echo "-- Solver:$solver --" >> $nome.$solver
-        echo "-- $k-Coloring --" >> $nome.$solver
+        echo "-- Solver:$solver --" >> $solver.sol
+        echo "-- $k-Coloring --" >> $solver.sol
 
-        ./$solver --sat $nome.cnf >> $nome.$solver 2>&1 &
+        ./$solver --relaxed --time=36 $nome.cnf  >> $solver.sol 2>&1 &
         echo "$solver started"
 
     done
 
-    echo "-- Solver:hkis --" >> $nome.hkis
-    echo "-- $k-Coloring --" >> $nome.hkis
+    #echo "-- Solver:hkis --" >> $nome.hkis
+    #echo "-- $k-Coloring --" >> $nome.hkis
 
-    ./starexec_run_bva $nome.cnf dummy.out >> $nome.hkis 2>&1 &
-    echo "hkis started"
+    #./starexec_run_bva $nome.cnf dummy.out >> $nome.hkis 2>&1 &
+    #echo "hkis started"
 
 
     wait $(jobs -p)
     echo "$nome done"
 
+    for solver in "kissat-original" "kissat-mab-dc"; do
+
+    
+    out=$(python3 verify_col.py $file $solver.sol $k)
+    echo "-- Correto: " $out " --" >> $solver.sol
+
+    done
     rm $nome.cnf
     rm *.drat
+    
+    mkdir $nome
 
-    mv $nome.kissat-original logs/
-    mv $nome.kissat-mab-dc logs/
-    mv $nome.hkis logs/
+    cp $file $nome/
+    mv *.sol $nome/
+    mv $nome resp/
 
     mv $file col_done/
 

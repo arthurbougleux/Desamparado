@@ -30,14 +30,10 @@ def read_clq(filename):
         
         i, j = map(lambda x: int(x)-1, l.strip().split()[1:])
 
-        if j > i:
-             tmp = i
-             i = j
-             j = tmp
-
         if not g[i][j]:
             m += 1
-        g[i][j] = 1
+            g[i][j] = 1
+            g[j][i] = 1
     
     return g, n, m
 
@@ -64,6 +60,12 @@ def calc_nclauses(g, n, m, k):
                             nclauses+=1'''
     nclauses += (((n * (n-1)) //2) - m) * (k**2 - k)
     return nclauses
+
+def unpack_lit(l, k):
+        l = abs(l) - 1
+        pos = l//k
+        no = l%k
+        return no, pos
 
 def clq_to_cnf(g, n, m, k, original, out):
     
@@ -123,6 +125,7 @@ def clq_to_cnf(g, n, m, k, original, out):
                         if (i != j):
 
                             f.write("-"+ var(i,n1) + " -"+ var(j,n2) + endcl)
+                            
 
 
     f.close()

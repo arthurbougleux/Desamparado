@@ -26,14 +26,10 @@ def read_col(filename):
         
         i, j = map(lambda x: int(x) - 1, l.split()[1:])
 
-        if j > i:
-             tmp = i
-             i = j
-             j = tmp
-
-        if not g[i][j]:
-            m += 1
-        g[i][j] = 1
+        if (not g[i][j]) and (not g[j][i]):
+            m += 2
+            g[i][j] = 1
+            g[j][i] = 1
     
     file.close()
 
@@ -55,6 +51,13 @@ def calc_nclauses(g, n, m, k):
     
     nclauses += m * k
     return nclauses
+
+def unpack_lit(l, k):
+        l = abs(l) - 1
+        no = l//k
+        cor = l%k
+        return no, cor
+
 
 def colk_to_cnf(g, n, m, k, out, original):
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 mkdir hc_done
-mkdir logs
+mkdir resp
 
 for file in *.hcp; do
     nome="${file%".hcp"}"
@@ -11,29 +11,31 @@ for file in *.hcp; do
 
     for solver in "kissat-original" "kissat-mab-dc"; do
 
-        echo "-- Solver:$solver --" >> $nome.$solver
-        echo "-- Ciclo Hamiltoniano --" >> $nome.$solver
+        echo "-- Solver:$solver --" > $solver.sol
+        echo "-- Ciclo Hamiltoniano --" >> $solver.sol
 
-        ./$solver $nome.cnf >> $nome.$solver 2>&1 &
+        ./$solver -q --relaxed --time=300 $nome.cnf >> $solver.sol 2>&1 &
         echo "$solver started"
 
     done
 
-    echo "-- Solver:hkis --" >> $nome.hkis
-    echo "-- Ciclo Hamiltoniano --" >> $nome.hkis
+    #echo "-- Solver:hkis --" > $nome.hkis
+    #echo "-- Ciclo Hamiltoniano --" >> $nome.hkis
 
-    ./starexec_run_bva $nome.cnf dummy.out >> $nome.hkis 2>&1 &
-    echo "hkis started"
+    #./starexec_run_bva $nome.cnf dummy.out >> $nome.hkis 2>&1 &
+    #echo "hkis started"
 
     wait $(jobs -p)
     echo "$nome done"
 
     rm $nome.cnf
     rm *.drat
+    
+    mkdir $nome
 
-    mv $nome.kissat-original logs/
-    mv $nome.kissat-mab-dc logs/
-    mv $nome.hkis logs/
+    cp $file $nome/
+    mv *.sol $nome/
+    mv $nome resp/
 
     mv $file hc_done/
 

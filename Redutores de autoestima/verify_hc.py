@@ -1,6 +1,10 @@
 from hc import *
 import sys
 
+verb = False
+if "v" in sys.argv or "-v" in sys.argv:
+    verb = True
+
 def read_sol(file, n):
 
     fsol = open(file, "r")
@@ -9,7 +13,8 @@ def read_sol(file, n):
     for l in fsol:
 
         if (l.startswith("v ")):
-            print(l)
+
+            if verb: print(l)
 
             posvals = list(filter(lambda x: x > 0, map(int, l.split()[1:])))
 
@@ -21,32 +26,32 @@ def read_sol(file, n):
     return sol
 
 
-g, n, _ = read_hcp(sys.argv[1])
-
+g, n, _ = read_instance(sys.argv[1])
 sol = read_sol(sys.argv[2], n)
-for l in sol:
-    print(l["no"], end=" ")
 
-
+if len(sol) < n:
+    print(False)
+    exit()
 
 correto = True
-for i in range(len(sol)-1):
+for i in range(len(sol)):
 
     n1 = sol[i]["no"]
-    n2 = sol[i+1]["no"]
-
+    n2 = sol[(i+1)%n]["no"]
+    
     if not (g[n1][n2] or g[n2][n1]):
         correto = False
         break
 
-if not (g[sol[len(sol)-1]["no"]][sol[0]["no"]] or g[sol[0]["no"]][sol[len(sol)-1]["no"]]):
-    correto = False
+if verb:
 
+    for l in sol:
+        print(l["no"], end=" ")
+    print()
 
+    if not correto:
+        print("Não é ciclo")
+    else:
+        print("Ciclo")
 
-print("Corr: ", correto)
-
-if not correto:
-    print("Não é ciclo")
-else:
-     print("Ciclo")
+print(correto)
