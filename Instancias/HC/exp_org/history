@@ -1,6 +1,105 @@
-mkdir: cannot create directory ‘hc_done’: File exists
-mkdir: cannot create directory ‘logs’: File exists
 FLS_170...
 kissat-original started
 kissat-mab-dc started
 hkis started
+FLS_170 done
+FLS_338...
+kissat-original started
+kissat-mab-dc started
+hkis started
+FLS_338 done
+FLS3_408...
+kissat-original started
+kissat-mab-dc started
+hkis started
+FLS3_408 done
+FLS_507...
+kissat-original started
+kissat-mab-dc started
+hkis started
+FLS_507 done
+FLS_676...
+kissat-original started
+kissat-mab-dc started
+hkis started
+FLS_676 done
+GP0m_130...
+kissat-original started
+kissat-mab-dc started
+hkis started
+GP0m_130 done
+GP0m_250...
+kissat-original started
+kissat-mab-dc started
+hkis started
+GP0m_250 done
+GP0m_490...
+kissat-original started
+kissat-mab-dc started
+hkis started
+GP0m_490 done
+GP3_126...
+kissat-original started
+kissat-mab-dc started
+hkis started
+GP3_126 done
+GP3_246...
+kissat-original started
+kissat-mab-dc started
+hkis started
+GP3_246 done
+GP3_486...
+kissat-original started
+kissat-mab-dc started
+hkis started
+GP3_486 done
+GPN_122...
+kissat-original started
+kissat-mab-dc started
+hkis started
+GPN_122 done
+GPN_244...
+kissat-original started
+kissat-mab-dc started
+hkis started
+GPN_244 done
+GPN_482...
+kissat-original started
+kissat-mab-dc started
+hkis started
+GPN_482 done
+SH_125...
+kissat-original started
+kissat-mab-dc started
+hkis started
+SH_125 done
+SH_250...
+kissat-original started
+kissat-mab-dc started
+hkis started
+SH_250 done
+SH_500...
+kissat-original started
+kissat-mab-dc started
+hkis started
+SH_500 done
+SH_64...
+kissat-original started
+kissat-mab-dc started
+hkis started
+SH_64 done
+SNm_124...
+kissat-original started
+kissat-mab-dc started
+hkis started
+SNm_124 done
+SNm_252...
+kissat-original started
+kissat-mab-dc started
+hkis started
+SNm_252 done
+SNm_500...
+kissat-original started
+kissat-mab-dc started
+hkis started
+SNm_500 done

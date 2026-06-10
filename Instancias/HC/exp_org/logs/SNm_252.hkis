@@ -1,0 +1,8 @@
+-- Solver:hkis --
+-- Ciclo Hamiltoniano --
+-- Tempo de CPU total = 201.048790 --
+kissat: error: bva.cnf:1: parse error: too many clauses (try '--relaxed' parsing)
+kissat: error: SNm_252.cnf:1: parse error: too many clauses (try '--relaxed' parsing)
+-- Tempo de CPU total = 1.182789 --
+c ['--target=1', '--walkinitially=true', '--chrono=true']
+c BVA ran successfully!

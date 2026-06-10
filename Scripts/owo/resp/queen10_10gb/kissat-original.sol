@@ -1,0 +1,5 @@
+-- Solver:kissat-original --
+-- -Coloring --
+kissat: error: can not read 'queen10_10gb.cnf'
+-- Tempo de CPU total = 0.000112 --
+-- Correto:   --

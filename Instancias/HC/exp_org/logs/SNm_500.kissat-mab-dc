@@ -1,0 +1,4 @@
+-- Solver:kissat-mab-dc --
+-- Ciclo Hamiltoniano --
+kissat: error: SNm_500.cnf:247999505: parse error: too many clauses (try '--relaxed' parsing)
+-- Tempo de CPU total = 14.962436 --

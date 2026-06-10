@@ -63,7 +63,7 @@ def colk_to_cnf(g, n, m, k, out, original):
 
     f = open(out, "w")
 
-    n = len(g)
+    #n = len(g)
     nvars = calc_nvars(n, k)
     nclauses = calc_nclauses(g, n, m, k)
 

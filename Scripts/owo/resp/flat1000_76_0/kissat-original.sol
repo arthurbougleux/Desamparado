@@ -1,0 +1,82 @@
+-- Solver:kissat-original --
+-- 76-Coloring --
+c ---- [ banner ] ------------------------------------------------------------
+c
+c Kissat SAT Solver
+c 
+c Copyright (c) 2021-2024 Armin Biere University of Freiburg
+c Copyright (c) 2019-2021 Armin Biere Johannes Kepler University Linz
+c 
+c Version sc2024 d776b9e1002a822b821e1926835145300580fbea
+c gcc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0 -W -Wall -O3 -DNDEBUG
+c Mon Sep 22 15:53:48 -03 2025 Linux Eyvel 6.8.0-83-generic x86_64
+c
+c ---- [ parsing ] -----------------------------------------------------------
+c
+c opened and reading DIMACS file:
+c
+c   flat1000_76_0.cnf
+c
+c parsed 'p cnf 76000 37500616' header
+c closing input after reading 294969109 bytes (281 MB)
+c finished parsing after 1.13 seconds
+c
+c ---- [ solving ] -----------------------------------------------------------
+c
+c  seconds  switched rate     size/glue tier1     binary         remaining
+c          MB reductions conflicts size  tier2       irredundant
+c           level restarts redundant glue  trail            variables
+c
+c *  1.13 265 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 18749808 1000 76000 100%
+c (  1.13 267 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 18749808 1000 76000 100%
+c .  1.13 267 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 18749808 1000 76000 100%
+c f 24.00 287 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 15682280 1000 87214 115%
+c ) 24.14 287 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 15682280 1000 87214 115%
+c { 24.14 288 0 0 0  0 0   0   0 0.0 0 0 2 6 0% 15682280 1000 87214 115%
+c } 24.14 288 0 0 0  0 0   0   0 0.0 0 0 2 6 0% 15682280 1000 87214 115%
+c ? 24.14 288 0 0 0  0 0   0   0 0.0 0 0 2 6 0% 15682280 1000 87214 115%
+c
+c ---- [ result ] ------------------------------------------------------------
+c
+s UNKNOWN
+c
+c ---- [ profiling ] ---------------------------------------------------------
+c
+c          23.00   95.28 %  preprocess
+c          22.88   94.78 %  probe
+c          21.66   89.71 %  factor
+c           1.13    4.66 %  parse
+c           0.92    3.80 %  congruence
+c           0.23    0.94 %  substitute
+c           0.12    0.49 %  fastel
+c           0.08    0.32 %  sweep
+c           0.01    0.06 %  lucky
+c           0.00    0.01 %  backbone
+c           0.00    0.00 %  search
+c           0.00    0.00 %  focused
+c           0.00    0.00 %  simplify
+c =============================================
+c          24.14  100.00 %  total
+c
+c ---- [ statistics ] --------------------------------------------------------
+c
+c conflicts:                                0                0.00 per second
+c decisions:                                0                0.00 per conflict
+c factored:                             11214               15 %  variables
+c propagations:                        656005            27172    per second
+c switched:                                 0                0    interval
+c
+c ---- [ glue usage ] --------------------------------------------------------
+c
+c no clauses used at all
+c
+c ---- [ resources ] ---------------------------------------------------------
+c
+c maximum-resident-set-size:        431104000 bytes        411 MB
+c process-time:                            24s              24.14 seconds
+c
+c ---- [ shutting down ] -----------------------------------------------------
+c
+c exit 0
+-- Tempo de CPU total = 23.844816 --
+-- Correto:  False  --

@@ -1,0 +1,4 @@
+-- Solver:kissat-mab-dc --
+-- Ciclo Hamiltoniano --
+kissat: error: GP3_486.cnf:227694407: parse error: too many clauses (try '--relaxed' parsing)
+-- Tempo de CPU total = 13.773146 --

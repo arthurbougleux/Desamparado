@@ -1,0 +1,4 @@
+-- Solver:kissat-original --
+-- Ciclo Hamiltoniano --
+kissat: error: SNm_124.cnf:1: parse error: too many clauses (try '--relaxed' parsing)
+-- Tempo de CPU total = 0.164966 --

@@ -1,0 +1,9 @@
+-- Solver:hkis --
+-- Ciclo Hamiltoniano --
+terminate called after throwing an instance of 'std::length_error'
+  what():  vector::reserve
+timeout: the monitored command dumped core
+kissat: error: FLS_507.cnf:1: parse error: too many clauses (try '--relaxed' parsing)
+-- Tempo de CPU total = 10.845100 --
+c ['--target=1', '--walkinitially=true', '--chrono=true']
+c BVA failed! Solving with original solver

@@ -1,0 +1,6 @@
+-- Solver:hkis --
+-- Ciclo Hamiltoniano --
+kissat: error: SH_500.cnf:1: parse error: too many clauses (try '--relaxed' parsing)
+-- Tempo de CPU total = 4.684423 --
+c ['--target=1', '--walkinitially=true', '--chrono=true']
+c BVA failed! Solving with original solver

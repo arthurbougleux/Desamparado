@@ -7,12 +7,12 @@ from math import *
 def read_instance(filename):
 
         if filename.endswith(".hcp"):
-            return read_hcp(filename)
+            return read_tsplib(filename)
         
         if filename.endswith(".csv"):
             return read_bel(filename)
 
-def read_hcp(filename):
+def read_tsplib(filename):
     
     file = open(filename, "r")
 

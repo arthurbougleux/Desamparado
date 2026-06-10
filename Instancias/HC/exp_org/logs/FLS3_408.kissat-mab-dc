@@ -1,0 +1,4 @@
+-- Solver:kissat-mab-dc --
+-- Ciclo Hamiltoniano --
+kissat: error: FLS3_408.cnf:133975372: parse error: too many clauses (try '--relaxed' parsing)
+-- Tempo de CPU total = 7.713346 --

@@ -1,0 +1,3 @@
+-- Solver:kissat-mab-dc --
+-- Ciclo Hamiltoniano --
+-- Tempo de CPU total = 298.064003 --
