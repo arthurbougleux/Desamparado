@@ -19,7 +19,7 @@ c   flat1000_50_0.cnf
 c
 c parsed 'p cnf 50000 24501000' header
 c closing input after reading 190847783 bytes (182 MB)
-c finished parsing after 0.67 seconds
+c finished parsing after 0.57 seconds
 c
 c ---- [ solving ] -----------------------------------------------------------
 c
@@ -27,14 +27,14 @@ c  seconds  switched rate     size/glue tier1     binary         remaining
 c          MB reductions conflicts size  tier2       irredundant
 c           level restarts redundant glue  trail            variables
 c
-c *  0.67 135 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 12250000 1000 50000 100%
-c (  0.68 137 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 12250000 1000 50000 100%
-c .  0.68 137 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 12250000 1000 50000 100%
-c f 24.00 207 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 9111059 1000 63562 127%
-c ) 24.08 207 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 9111059 1000 63562 127%
-c { 24.09 208 0 0 0  0 0   0   0 0.0 0 0 2 6 0% 9111059 1000 63562 127%
-c } 24.09 208 0 0 0  0 0   0   0 0.0 0 0 2 6 0% 9111059 1000 63562 127%
-c ? 24.09 208 0 0 0  0 0   0   0 0.0 0 0 2 6 0% 9111059 1000 63562 127%
+c *  0.57 135 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 12250000 1000 50000 100%
+c (  0.57 137 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 12250000 1000 50000 100%
+c .  0.57 137 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 12250000 1000 50000 100%
+c f 24.00 208 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 9012607 1000 64181 128%
+c ) 24.09 208 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 9012607 1000 64181 128%
+c { 24.10 209 0 0 0  0 0   0   0 0.0 0 0 2 6 0% 9012607 1000 64181 128%
+c } 24.10 209 0 0 0  0 0   0   0 0.0 0 0 2 6 0% 9012607 1000 64181 128%
+c ? 24.10 209 0 0 0  0 0   0   0 0.0 0 0 2 6 0% 9012607 1000 64181 128%
 c
 c ---- [ result ] ------------------------------------------------------------
 c
@@ -42,28 +42,28 @@ s UNKNOWN
 c
 c ---- [ profiling ] ---------------------------------------------------------
 c
-c          23.40   97.16 %  preprocess
-c          23.33   96.87 %  probe
-c          22.45   93.22 %  factor
-c           0.67    2.80 %  parse
-c           0.52    2.14 %  congruence
-c           0.27    1.11 %  substitute
-c           0.09    0.38 %  sweep
-c           0.07    0.29 %  fastel
+c          23.52   97.60 %  preprocess
+c          23.44   97.27 %  probe
+c          22.67   94.08 %  factor
+c           0.57    2.37 %  parse
+c           0.53    2.19 %  congruence
+c           0.17    0.71 %  substitute
+c           0.08    0.32 %  fastel
+c           0.07    0.29 %  sweep
 c           0.01    0.04 %  lucky
 c           0.00    0.01 %  backbone
 c           0.00    0.00 %  search
 c           0.00    0.00 %  focused
 c           0.00    0.00 %  simplify
 c =============================================
-c          24.09  100.00 %  total
+c          24.10  100.00 %  total
 c
 c ---- [ statistics ] --------------------------------------------------------
 c
 c conflicts:                                0                0.00 per second
 c decisions:                                0                0.00 per conflict
-c factored:                             13562               27 %  variables
-c propagations:                        526652            21864    per second
+c factored:                             14181               28 %  variables
+c propagations:                        511872            21242    per second
 c switched:                                 0                0    interval
 c
 c ---- [ glue usage ] --------------------------------------------------------
@@ -72,11 +72,11 @@ c no clauses used at all
 c
 c ---- [ resources ] ---------------------------------------------------------
 c
-c maximum-resident-set-size:        286658560 bytes        273 MB
-c process-time:                            24s              24.09 seconds
+c maximum-resident-set-size:        286392320 bytes        273 MB
+c process-time:                            24s              24.10 seconds
 c
 c ---- [ shutting down ] -----------------------------------------------------
 c
 c exit 0
--- Tempo de CPU total = 23.918504 --
+-- Tempo de CPU total = 23.940683 --
 -- Correto:  False  --

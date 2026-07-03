@@ -19,7 +19,7 @@ c   DSJR500.1.cnf
 c
 c parsed 'p cnf 42500 604850' header
 c closing input after reading 4920892 bytes (5 MB)
-c finished parsing after 0.04 seconds
+c finished parsing after 0.02 seconds
 c
 c ---- [ solving ] -----------------------------------------------------------
 c
@@ -27,10 +27,10 @@ c  seconds switched rate     size/glue tier1   binary        remaining
 c         MB reductions conflicts size  tier2     irredundant
 c          level restarts redundant glue  trail         variables
 c
-c *  0.04 11 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 302175 500 42500 100%
+c *  0.02 11 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 302175 500 42500 100%
 c lucky in forward setting literals to false
-c l  0.04 13 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 302175 500 42500 100%
-c 1  0.04 13 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 302175 500 42500 100%
+c l  0.02 13 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 302175 500 42500 100%
+c 1  0.02 13 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 302175 500 42500 100%
 c
 c ---- [ result ] ------------------------------------------------------------
 c
@@ -3799,18 +3799,18 @@ v -42491 -42492 -42493 -42494 -42495 -42496 -42497 -42498 -42499 -42500 0
 c
 c ---- [ profiling ] ---------------------------------------------------------
 c
-c           0.04   81.26 %  parse
-c           0.00    6.07 %  lucky
+c           0.02   84.41 %  parse
+c           0.00    4.73 %  lucky
 c           0.00    0.00 %  search
 c           0.00    0.00 %  simplify
 c =============================================
-c           0.05  100.00 %  total
+c           0.03  100.00 %  total
 c
 c ---- [ statistics ] --------------------------------------------------------
 c
 c conflicts:                                0                0.00 per second
 c decisions:                                0                0.00 per conflict
-c propagations:                         42500           850919    per second
+c propagations:                         42500          1600633    per second
 c switched:                                 0                0    interval
 c
 c ---- [ glue usage ] --------------------------------------------------------
@@ -3819,11 +3819,11 @@ c no clauses used at all
 c
 c ---- [ resources ] ---------------------------------------------------------
 c
-c maximum-resident-set-size:         13361152 bytes         13 MB
-c process-time:                                              0.05 seconds
+c maximum-resident-set-size:         13238272 bytes         13 MB
+c process-time:                                              0.03 seconds
 c
 c ---- [ shutting down ] -----------------------------------------------------
 c
 c exit 10
--- Tempo de CPU total = 0.039008 --
+-- Tempo de CPU total = 0.021659 --
 -- Correto:  True  --

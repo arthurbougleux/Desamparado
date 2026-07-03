@@ -19,7 +19,7 @@ c   mulsol.i.4.cnf
 c
 c parsed 'p cnf 5735 244837' header
 c closing input after reading 1628146 bytes (2 MB)
-c finished parsing after 0.02 seconds
+c finished parsing after 0.01 seconds
 c
 c ---- [ solving ] -----------------------------------------------------------
 c
@@ -27,10 +27,10 @@ c  seconds switched rate     size/glue tier1   binary       remaining
 c         MB reductions conflicts size  tier2     irredundant
 c          level restarts redundant glue  trail        variables
 c
-c *  0.02  5 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 122326 185 5735 100%
+c *  0.01  5 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 122326 185 5735 100%
 c lucky in forward setting literals to false
-c l  0.02  5 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 122326 185 5735 100%
-c 1  0.02  5 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 122326 185 5735 100%
+c l  0.01  5 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 122326 185 5735 100%
+c 1  0.01  5 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 122326 185 5735 100%
 c
 c ---- [ result ] ------------------------------------------------------------
 c
@@ -486,18 +486,18 @@ v -5731 -5732 -5733 -5734 -5735 0
 c
 c ---- [ profiling ] ---------------------------------------------------------
 c
-c           0.02   91.82 %  parse
-c           0.00    1.52 %  lucky
+c           0.01   91.30 %  parse
+c           0.00    1.58 %  lucky
 c           0.00    0.00 %  search
 c           0.00    0.00 %  simplify
 c =============================================
-c           0.02  100.00 %  total
+c           0.01  100.00 %  total
 c
 c ---- [ statistics ] --------------------------------------------------------
 c
 c conflicts:                                0                0.00 per second
 c decisions:                                0                0.00 per conflict
-c propagations:                          5735           303327    per second
+c propagations:                          5735           428721    per second
 c switched:                                 0                0    interval
 c
 c ---- [ glue usage ] --------------------------------------------------------
@@ -506,11 +506,11 @@ c no clauses used at all
 c
 c ---- [ resources ] ---------------------------------------------------------
 c
-c maximum-resident-set-size:          6553600 bytes          6 MB
-c process-time:                                              0.02 seconds
+c maximum-resident-set-size:          6422528 bytes          6 MB
+c process-time:                                              0.01 seconds
 c
 c ---- [ shutting down ] -----------------------------------------------------
 c
 c exit 10
--- Tempo de CPU total = 0.014599 --
+-- Tempo de CPU total = 0.008306 --
 -- Correto:  True  --

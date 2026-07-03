@@ -19,7 +19,7 @@ c   school1.cnf
 c
 c parsed 'p cnf 5390 535045' header
 c closing input after reading 3667597 bytes (3 MB)
-c finished parsing after 0.02 seconds
+c finished parsing after 0.01 seconds
 c
 c ---- [ solving ] -----------------------------------------------------------
 c
@@ -27,15 +27,15 @@ c  seconds switched rate     size/glue tier1   binary       remaining
 c         MB reductions conflicts size  tier2     irredundant
 c          level restarts redundant glue  trail        variables
 c
-c *  0.02  8 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 267330 385 5390 100%
-c (  0.02  8 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 267330 385 5390 100%
-c .  0.02  8 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 267330 385 5390 100%
-c f  0.29 14 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 92154 385 17830 331%
+c *  0.01  8 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 267330 385 5390 100%
+c (  0.01  8 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 267330 385 5390 100%
+c .  0.01  8 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 267330 385 5390 100%
+c f  0.30 14 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 92154 385 17830 331%
 c e  0.31 11 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 98892 953 11861 220%
 c )  0.31 11 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 98892 953 11861 220%
-c {  0.31 11 0 0 0  0 0   0   0 0.0 0 0 2 6 0% 98892 953 11861 220%
-c }  0.32 11 22 0 0 44 6 854 580 1.2 15 12 11 14 23% 98892 953 11861 220%
-c 1  0.32 11 22 0 0 44 6 854 580 1.2 15 12 11 14 23% 98892 953 11861 220%
+c {  0.32 11 0 0 0  0 0   0   0 0.0 0 0 2 6 0% 98892 953 11861 220%
+c }  0.33 11 22 0 0 44 6 854 580 1.2 15 12 11 14 23% 98892 953 11861 220%
+c 1  0.33 11 22 0 0 44 6 854 580 1.2 15 12 11 14 23% 98892 953 11861 220%
 c
 c ---- [ result ] ------------------------------------------------------------
 c
@@ -451,33 +451,33 @@ v -5384 -5385 -5386 5387 -5388 -5389 -5390 0
 c
 c ---- [ profiling ] ---------------------------------------------------------
 c
-c           0.29   89.73 %  preprocess
-c           0.27   85.00 %  probe
-c           0.24   75.17 %  factor
-c           0.02    6.04 %  sweep
-c           0.02    5.47 %  parse
-c           0.02    4.71 %  fastel
-c           0.01    4.33 %  search
-c           0.01    4.33 %  focused
-c           0.01    2.44 %  congruence
-c           0.00    1.00 %  substitute
-c           0.00    0.35 %  backbone
-c           0.00    0.22 %  lucky
-c           0.00    0.05 %  extend
+c           0.30   90.85 %  preprocess
+c           0.28   85.91 %  probe
+c           0.25   76.67 %  factor
+c           0.02    5.78 %  sweep
+c           0.02    4.92 %  fastel
+c           0.01    4.38 %  search
+c           0.01    4.37 %  focused
+c           0.01    4.32 %  parse
+c           0.01    2.13 %  congruence
+c           0.00    0.99 %  substitute
+c           0.00    0.34 %  backbone
+c           0.00    0.23 %  lucky
+c           0.00    0.06 %  extend
 c           0.00    0.00 %  simplify
 c =============================================
-c           0.32  100.00 %  total
+c           0.33  100.00 %  total
 c
 c ---- [ statistics ] --------------------------------------------------------
 c
 c chronological:                            1                0 %  conflicts
-c conflicts:                              854             2631.72 per second
+c conflicts:                              854             2578.47 per second
 c decisions:                             6413                7.51 per conflict
 c eliminated:                            5969              111 %  variables
 c factored:                             12440              231 %  variables
 c fast_eliminated:                       5969              100 %  eliminated
 c fast_strengthened:                        2              100 %  per strengthened
-c propagations:                        581688          1792550    per second
+c propagations:                        581688          1756283    per second
 c restarts:                                44               19    interval
 c strengthened:                             2                0 %  checks
 c switched:                                 0                0    interval
@@ -490,11 +490,11 @@ c focused glue 13 used 163 clauses  9.84% accumulated 92.52% tier2
 c
 c ---- [ resources ] ---------------------------------------------------------
 c
-c maximum-resident-set-size:         14446592 bytes         14 MB
-c process-time:                                              0.32 seconds
+c maximum-resident-set-size:         14458880 bytes         14 MB
+c process-time:                                              0.33 seconds
 c
 c ---- [ shutting down ] -----------------------------------------------------
 c
 c exit 10
--- Tempo de CPU total = 0.320528 --
+-- Tempo de CPU total = 0.321250 --
 -- Correto:  True  --

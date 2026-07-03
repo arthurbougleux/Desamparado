@@ -136,5 +136,5 @@ num_colors = 74
 125 36
 126 72
 127 29
-### Running Time: 0.000852
-# time per iter: 0.000852
+### Running Time: 0.000211
+# time per iter: 0.000211

@@ -19,7 +19,7 @@ c   flat1000_76_0.cnf
 c
 c parsed 'p cnf 76000 37500616' header
 c closing input after reading 294969109 bytes (281 MB)
-c finished parsing after 1.13 seconds
+c finished parsing after 0.99 seconds
 c
 c ---- [ solving ] -----------------------------------------------------------
 c
@@ -27,14 +27,14 @@ c  seconds  switched rate     size/glue tier1     binary         remaining
 c          MB reductions conflicts size  tier2       irredundant
 c           level restarts redundant glue  trail            variables
 c
-c *  1.13 265 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 18749808 1000 76000 100%
-c (  1.13 267 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 18749808 1000 76000 100%
-c .  1.13 267 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 18749808 1000 76000 100%
-c f 24.00 287 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 15682280 1000 87214 115%
-c ) 24.14 287 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 15682280 1000 87214 115%
-c { 24.14 288 0 0 0  0 0   0   0 0.0 0 0 2 6 0% 15682280 1000 87214 115%
-c } 24.14 288 0 0 0  0 0   0   0 0.0 0 0 2 6 0% 15682280 1000 87214 115%
-c ? 24.14 288 0 0 0  0 0   0   0 0.0 0 0 2 6 0% 15682280 1000 87214 115%
+c *  0.99 265 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 18749808 1000 76000 100%
+c (  1.00 267 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 18749808 1000 76000 100%
+c .  1.00 267 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 18749808 1000 76000 100%
+c f 24.00 286 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 15745492 1000 86928 114%
+c ) 24.15 286 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 15745492 1000 86928 114%
+c { 24.16 287 0 0 0  0 0   0   0 0.0 0 0 2 6 0% 15745492 1000 86928 114%
+c } 24.16 287 0 0 0  0 0   0   0 0.0 0 0 2 6 0% 15745492 1000 86928 114%
+c ? 24.16 287 0 0 0  0 0   0   0 0.0 0 0 2 6 0% 15745492 1000 86928 114%
 c
 c ---- [ result ] ------------------------------------------------------------
 c
@@ -42,28 +42,28 @@ s UNKNOWN
 c
 c ---- [ profiling ] ---------------------------------------------------------
 c
-c          23.00   95.28 %  preprocess
-c          22.88   94.78 %  probe
-c          21.66   89.71 %  factor
-c           1.13    4.66 %  parse
-c           0.92    3.80 %  congruence
-c           0.23    0.94 %  substitute
-c           0.12    0.49 %  fastel
-c           0.08    0.32 %  sweep
-c           0.01    0.06 %  lucky
+c          23.16   95.85 %  preprocess
+c          23.03   95.31 %  probe
+c          21.73   89.97 %  factor
+c           0.99    4.10 %  parse
+c           0.97    4.00 %  congruence
+c           0.24    0.98 %  substitute
+c           0.13    0.54 %  fastel
+c           0.09    0.36 %  sweep
+c           0.01    0.05 %  lucky
 c           0.00    0.01 %  backbone
 c           0.00    0.00 %  search
 c           0.00    0.00 %  focused
 c           0.00    0.00 %  simplify
 c =============================================
-c          24.14  100.00 %  total
+c          24.16  100.00 %  total
 c
 c ---- [ statistics ] --------------------------------------------------------
 c
 c conflicts:                                0                0.00 per second
 c decisions:                                0                0.00 per conflict
-c factored:                             11214               15 %  variables
-c propagations:                        656005            27172    per second
+c factored:                             10928               14 %  variables
+c propagations:                        648161            26829    per second
 c switched:                                 0                0    interval
 c
 c ---- [ glue usage ] --------------------------------------------------------
@@ -72,11 +72,11 @@ c no clauses used at all
 c
 c ---- [ resources ] ---------------------------------------------------------
 c
-c maximum-resident-set-size:        431104000 bytes        411 MB
-c process-time:                            24s              24.14 seconds
+c maximum-resident-set-size:        431419392 bytes        411 MB
+c process-time:                            24s              24.16 seconds
 c
 c ---- [ shutting down ] -----------------------------------------------------
 c
 c exit 0
--- Tempo de CPU total = 23.844816 --
+-- Tempo de CPU total = 23.915406 --
 -- Correto:  False  --

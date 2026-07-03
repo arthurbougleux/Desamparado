@@ -19,7 +19,7 @@ c   fpsol2.i.2.cnf
 c
 c parsed 'p cnf 13530 521911' header
 c closing input after reading 3563333 bytes (3 MB)
-c finished parsing after 0.03 seconds
+c finished parsing after 0.02 seconds
 c
 c ---- [ solving ] -----------------------------------------------------------
 c
@@ -27,10 +27,10 @@ c  seconds switched rate     size/glue tier1   binary        remaining
 c         MB reductions conflicts size  tier2     irredundant
 c          level restarts redundant glue  trail         variables
 c
-c *  0.03  7 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 260730 451 13530 100%
+c *  0.02  7 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 260730 451 13530 100%
 c lucky in forward setting literals to false
-c l  0.03  7 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 260730 451 13530 100%
-c 1  0.03  7 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 260730 451 13530 100%
+c l  0.02  7 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 260730 451 13530 100%
+c 1  0.02  7 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 260730 451 13530 100%
 c
 c ---- [ result ] ------------------------------------------------------------
 c
@@ -1150,18 +1150,18 @@ v -13525 -13526 -13527 -13528 -13529 -13530 0
 c
 c ---- [ profiling ] ---------------------------------------------------------
 c
-c           0.03   88.13 %  parse
-c           0.00    3.32 %  lucky
+c           0.02   92.00 %  parse
+c           0.00    1.84 %  lucky
 c           0.00    0.00 %  search
 c           0.00    0.00 %  simplify
 c =============================================
-c           0.04  100.00 %  total
+c           0.02  100.00 %  total
 c
 c ---- [ statistics ] --------------------------------------------------------
 c
 c conflicts:                                0                0.00 per second
 c decisions:                                0                0.00 per conflict
-c propagations:                         13530           359181    per second
+c propagations:                         13530           793316    per second
 c switched:                                 0                0    interval
 c
 c ---- [ glue usage ] --------------------------------------------------------
@@ -1170,11 +1170,11 @@ c no clauses used at all
 c
 c ---- [ resources ] ---------------------------------------------------------
 c
-c maximum-resident-set-size:         10092544 bytes         10 MB
-c process-time:                                              0.04 seconds
+c maximum-resident-set-size:          9961472 bytes         10 MB
+c process-time:                                              0.02 seconds
 c
 c ---- [ shutting down ] -----------------------------------------------------
 c
 c exit 10
--- Tempo de CPU total = 0.030934 --
+-- Tempo de CPU total = 0.015367 --
 -- Correto:  True  --

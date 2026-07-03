@@ -27,10 +27,10 @@ c  seconds switched rate     size/glue tier1   binary        remaining
 c         MB reductions conflicts size  tier2     irredundant
 c          level restarts redundant glue  trail         variables
 c
-c *  0.01  7 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 260640 425 12750 100%
+c *  0.02  7 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 260640 425 12750 100%
 c lucky in forward setting literals to false
-c l  0.01  7 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 260640 425 12750 100%
-c 1  0.01  7 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 260640 425 12750 100%
+c l  0.02  7 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 260640 425 12750 100%
+c 1  0.02  7 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 260640 425 12750 100%
 c
 c ---- [ result ] ------------------------------------------------------------
 c
@@ -1079,8 +1079,8 @@ v -12741 -12742 -12743 -12744 -12745 -12746 -12747 -12748 -12749 -12750 0
 c
 c ---- [ profiling ] ---------------------------------------------------------
 c
-c           0.01   91.65 %  parse
-c           0.00    2.36 %  lucky
+c           0.01   91.15 %  parse
+c           0.00    1.75 %  lucky
 c           0.00    0.00 %  search
 c           0.00    0.00 %  simplify
 c =============================================
@@ -1090,7 +1090,7 @@ c ---- [ statistics ] --------------------------------------------------------
 c
 c conflicts:                                0                0.00 per second
 c decisions:                                0                0.00 per conflict
-c propagations:                         12750           778388    per second
+c propagations:                         12750           742618    per second
 c switched:                                 0                0    interval
 c
 c ---- [ glue usage ] --------------------------------------------------------
@@ -1099,11 +1099,11 @@ c no clauses used at all
 c
 c ---- [ resources ] ---------------------------------------------------------
 c
-c maximum-resident-set-size:          9830400 bytes          9 MB
+c maximum-resident-set-size:          9961472 bytes         10 MB
 c process-time:                                              0.02 seconds
 c
 c ---- [ shutting down ] -----------------------------------------------------
 c
 c exit 10
--- Tempo de CPU total = 0.014363 --
+-- Tempo de CPU total = 0.013893 --
 -- Correto:  True  --

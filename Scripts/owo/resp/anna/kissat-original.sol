@@ -1,4 +1,71 @@
 -- Solver:kissat-original --
+-- 85-Coloring --
+c ---- [ banner ] ------------------------------------------------------------
+c
+c Kissat SAT Solver
+c 
+c Copyright (c) 2021-2024 Armin Biere University of Freiburg
+c Copyright (c) 2019-2021 Armin Biere Johannes Kepler University Linz
+c 
+c Version sc2024 d776b9e1002a822b821e1926835145300580fbea
+c gcc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0 -W -Wall -O3 -DNDEBUG
+c Mon Sep 22 15:53:48 -03 2025 Linux Eyvel 6.8.0-83-generic x86_64
+c
+c ---- [ parsing ] -----------------------------------------------------------
+c
+c opened and reading DIMACS file:
+c
+c   DSJR500.1c.cnf
+c
+c parsed 'p cnf 42500 20617250' header
+c closing input after reading 159798944 bytes (152 MB)
+c finished parsing after 0.49 seconds
+c
+c ---- [ solving ] -----------------------------------------------------------
+c
+c  seconds  switched rate     size/glue tier1     binary        remaining
+c          MB reductions conflicts size  tier2       irredundant
+c           level restarts redundant glue  trail           variables
+c
+c *  0.49 135 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 10308375 500 42500 100%
+c (  0.50 136 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 10308375 500 42500 100%
+c .  0.50 136 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 10308375 500 42500 100%
+c caught signal 2 (SIGINT)
+c
+c ---- [ profiling ] ---------------------------------------------------------
+c
+c           4.17   89.32 %  preprocess
+c           4.17   89.32 %  probe
+c           3.61   77.37 %  factor
+c           0.49   10.59 %  parse
+c           0.38    8.19 %  congruence
+c           0.13    2.78 %  substitute
+c           0.04    0.94 %  sweep
+c           0.00    0.09 %  lucky
+c           0.00    0.04 %  backbone
+c           0.00    0.00 %  search
+c           0.00    0.00 %  simplify
+c =============================================
+c           4.66  100.00 %  total
+c
+c ---- [ statistics ] --------------------------------------------------------
+c
+c conflicts:                                0                0.00 per second
+c decisions:                                0                0.00 per conflict
+c factored:                                36                0 %  variables
+c propagations:                        332794            71352    per second
+c switched:                                 0                0    interval
+c
+c ---- [ glue usage ] --------------------------------------------------------
+c
+c no clauses used at all
+c
+c ---- [ resources ] ---------------------------------------------------------
+c
+c maximum-resident-set-size:        228900864 bytes        218 MB
+c process-time:                             5s               4.66 seconds
+c raising signal 2 (SIGINT)
+-- Solver:kissat-original --
 -- 11-Coloring --
 c ---- [ banner ] ------------------------------------------------------------
 c
@@ -144,8 +211,8 @@ v -1518 0
 c
 c ---- [ profiling ] ---------------------------------------------------------
 c
-c           0.00   67.85 %  parse
-c           0.00   10.86 %  lucky
+c           0.00   66.77 %  parse
+c           0.00   10.53 %  lucky
 c           0.00    0.00 %  search
 c           0.00    0.00 %  simplify
 c =============================================
@@ -155,7 +222,7 @@ c ---- [ statistics ] --------------------------------------------------------
 c
 c conflicts:                                0                0.00 per second
 c decisions:                                0                0.00 per conflict
-c propagations:                          3955           685680    per second
+c propagations:                          3955          1814220    per second
 c switched:                                 0                0    interval
 c
 c ---- [ glue usage ] --------------------------------------------------------
@@ -164,11 +231,11 @@ c no clauses used at all
 c
 c ---- [ resources ] ---------------------------------------------------------
 c
-c maximum-resident-set-size:          3670016 bytes          4 MB
+c maximum-resident-set-size:          3801088 bytes          4 MB
 c process-time:                                              0.00 seconds
 c
 c ---- [ shutting down ] -----------------------------------------------------
 c
 c exit 10
--- Tempo de CPU total = 0.001962 --
+-- Tempo de CPU total = 0.001649 --
 -- Correto:  True  --

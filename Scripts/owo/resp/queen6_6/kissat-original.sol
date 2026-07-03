@@ -27,7 +27,7 @@ c  seconds switched rate     size/glue tier1  binary    remaining
 c         MB reductions conflicts size  tier2  irredundant
 c          level restarts redundant glue  trail     variables
 c
-c *  0.00  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 2030 36 252 100%
+c *  0.00  3 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 2030 36 252 100%
 c (  0.00  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 2030 36 252 100%
 c .  0.00  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 2030 36 252 100%
 c f  0.02  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 1373 36 434 172%
@@ -58,31 +58,31 @@ v -239 240 -241 -242 -243 -244 -245 -246 -247 -248 -249 250 -251 -252 0
 c
 c ---- [ profiling ] ---------------------------------------------------------
 c
-c           0.02   89.07 %  preprocess
-c           0.02   80.69 %  probe
-c           0.02   77.04 %  sweep
-c           0.00    8.13 %  fastel
-c           0.00    6.58 %  search
-c           0.00    6.55 %  focused
-c           0.00    2.89 %  parse
-c           0.00    2.81 %  factor
-c           0.00    0.50 %  congruence
-c           0.00    0.49 %  lucky
-c           0.00    0.18 %  backbone
-c           0.00    0.13 %  substitute
-c           0.00    0.04 %  extend
+c           0.02   89.89 %  preprocess
+c           0.02   80.94 %  probe
+c           0.02   77.33 %  sweep
+c           0.00    8.74 %  fastel
+c           0.00    6.88 %  search
+c           0.00    6.84 %  focused
+c           0.00    2.86 %  factor
+c           0.00    1.97 %  parse
+c           0.00    0.45 %  lucky
+c           0.00    0.42 %  congruence
+c           0.00    0.14 %  substitute
+c           0.00    0.13 %  backbone
+c           0.00    0.05 %  extend
 c           0.00    0.00 %  simplify
 c =============================================
 c           0.02  100.00 %  total
 c
 c ---- [ statistics ] --------------------------------------------------------
 c
-c conflicts:                              183             7897.80 per second
+c conflicts:                              183             8123.95 per second
 c decisions:                             1005                5.49 per conflict
 c eliminated:                             134               53 %  variables
 c factored:                               182               72 %  variables
 c fast_eliminated:                        134              100 %  eliminated
-c propagations:                         21252           917181    per second
+c propagations:                         21252           943443    per second
 c restarts:                                84                2    interval
 c switched:                                 0                0    interval
 c
@@ -102,5 +102,5 @@ c
 c ---- [ shutting down ] -----------------------------------------------------
 c
 c exit 10
--- Tempo de CPU total = 0.022205 --
+-- Tempo de CPU total = 0.020534 --
 -- Correto:  True  --

@@ -30,12 +30,12 @@ c
 c *  0.00  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 3096 128 1024 100%
 c (  0.00  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 3096 128 1024 100%
 c .  0.00  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 3096 128 1024 100%
-c f  0.06  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 2268 128 1269 124%
-c e  0.07  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 1745 410 750 73%
-c )  0.07  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 1745 410 750 73%
+c f  0.02  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 2268 128 1269 124%
+c e  0.03  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 1745 410 750 73%
+c )  0.03  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 1745 410 750 73%
 c lucky in forward setting literals to false
-c l  0.07  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 1745 410 750 73%
-c 1  0.07  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 1745 410 750 73%
+c l  0.03  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 1745 410 750 73%
+c 1  0.03  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 1745 410 750 73%
 c
 c ---- [ result ] ------------------------------------------------------------
 c
@@ -108,21 +108,21 @@ v -1015 1016 -1017 1018 -1019 -1020 -1021 -1022 -1023 -1024 0
 c
 c ---- [ profiling ] ---------------------------------------------------------
 c
-c           0.07   95.93 %  preprocess
-c           0.05   78.43 %  probe
-c           0.05   75.08 %  sweep
-c           0.01   17.28 %  fastel
-c           0.00    2.61 %  parse
-c           0.00    2.06 %  factor
-c           0.00    0.77 %  congruence
-c           0.00    0.45 %  lucky
-c           0.00    0.27 %  backbone
-c           0.00    0.23 %  substitute
-c           0.00    0.16 %  extend
+c           0.02   96.73 %  preprocess
+c           0.02   77.26 %  probe
+c           0.02   73.96 %  sweep
+c           0.00   19.28 %  fastel
+c           0.00    2.20 %  factor
+c           0.00    1.95 %  parse
+c           0.00    0.60 %  congruence
+c           0.00    0.40 %  lucky
+c           0.00    0.24 %  substitute
+c           0.00    0.24 %  backbone
+c           0.00    0.15 %  extend
 c           0.00    0.00 %  search
 c           0.00    0.00 %  simplify
 c =============================================
-c           0.07  100.00 %  total
+c           0.03  100.00 %  total
 c
 c ---- [ statistics ] --------------------------------------------------------
 c
@@ -133,7 +133,7 @@ c factored:                               245               24 %  variables
 c fast_eliminated:                        519              100 %  eliminated
 c fast_strengthened:                       61              100 %  per strengthened
 c fast_subsumed:                           12              100 %  per subsumed
-c propagations:                          8322           116882    per second
+c propagations:                          8322           317077    per second
 c strengthened:                            61                0 %  checks
 c subsumed:                                12                0 %  checks
 c switched:                                 0                0    interval
@@ -144,11 +144,11 @@ c no clauses used at all
 c
 c ---- [ resources ] ---------------------------------------------------------
 c
-c maximum-resident-set-size:          4325376 bytes          4 MB
-c process-time:                                              0.07 seconds
+c maximum-resident-set-size:          4194304 bytes          4 MB
+c process-time:                                              0.03 seconds
 c
 c ---- [ shutting down ] -----------------------------------------------------
 c
 c exit 10
--- Tempo de CPU total = 0.068294 --
+-- Tempo de CPU total = 0.025725 --
 -- Correto:  True  --

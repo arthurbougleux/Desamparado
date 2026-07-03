@@ -1,6 +1,5 @@
-import os
-from subprocess import *
 import sys
+from types import SimpleNamespace as Namespace
 
 def read_col(filename):
 
@@ -10,7 +9,6 @@ def read_col(filename):
         l = file.readline()
 
         if l.startswith("p"):
-
             n, _ = map(int, l.split()[2:])
             break
 
@@ -33,15 +31,54 @@ def read_col(filename):
     
     file.close()
 
-    return g, n, m
+    return Namespace(g=g, n=n, m=m)
 
+def unpack_lit(l, k):
+        l = abs(l) - 1
+        no = l//k
+        cor = l%k
+        return no, cor
 
-def calc_nvars(n, k):
-     return n*k
+def read_sol(file, k):
 
-def calc_nclauses(g, n, m, k):
+    with open(file, "r") as fsol:
 
-    nclauses = n
+        sol = {}
+
+        for line in fsol:
+
+            if not line.startswith("v "): continue
+
+            posvals = list(filter(lambda x: x > 0, map(int, line.split()[1:])))
+
+            for var in posvals:
+                no, cor = unpack_lit(var, k)
+                sol[no] = cor
+
+        return sol
+
+def verify_coloring(inst, sol):
+
+    correto = True
+    for i in range(inst.n):
+
+        c1 = sol[i]
+
+        for j in range(inst.n):
+
+            if inst.g[i][j] and sol[j] == c1:
+                correto = False
+                break
+        
+        if not correto : break
+    return correto
+
+def calc_nvars(inst):
+     return inst.n * inst.k
+
+def calc_nclauses(inst):
+
+    nclauses = inst.n
     
     #Me processa
     '''    for i in range(n):
@@ -49,14 +86,37 @@ def calc_nclauses(g, n, m, k):
                 if g[i][j]:
                     nclauses += k'''
     
-    nclauses += m * k
+    nclauses += inst.m * inst.k
     return nclauses
 
-def unpack_lit(l, k):
-        l = abs(l) - 1
-        no = l//k
-        cor = l%k
-        return no, cor
+#O nó i tem a cor j
+def var(i,j,k):
+    return str((i*k)+j + 1)
+
+endcl = " 0\n"
+
+def all_colored(file, inst):
+     
+    for i in range(inst.n):
+
+        cl = ""
+
+        for j in range(inst.k):
+
+            cl += var(i, j, inst.k) + " "
+        
+        cl += endcl
+        file.write(cl)
+
+def no_shared_colors(file, inst):
+
+    for i in range(inst.n):
+        for j in range(i):
+
+                if inst.g[i][j]:
+
+                    for c in range(inst.k):
+                        file.write("-" + var(i,c, inst.k) + " -" + var(j, c, inst.k) + endcl)
 
 
 def colk_to_cnf(g, n, m, k, out, original):

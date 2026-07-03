@@ -19,7 +19,7 @@ c   le450_5c.cnf
 c
 c parsed 'p cnf 2250 98480' header
 c closing input after reading 649871 bytes (635 KB)
-c finished parsing after 0.01 seconds
+c finished parsing after 0.00 seconds
 c
 c ---- [ solving ] -----------------------------------------------------------
 c
@@ -27,15 +27,15 @@ c  seconds switched rate     size/glue tier1  binary       remaining
 c         MB reductions conflicts size  tier2    irredundant
 c          level restarts redundant glue  trail       variables
 c
-c *  0.01  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 49015 450 2250 100%
-c (  0.01  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 49015 450 2250 100%
-c .  0.01  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 49015 450 2250 100%
-c f  0.14  6 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 29269 450 5883 261%
-c e  0.15  6 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 31636 469 4132 184%
-c )  0.15  6 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 31636 469 4132 184%
-c {  0.15  6 0 0 0  0 0   0   0 0.0 0 0 2 6 0% 31636 469 4132 184%
-c }  0.15  6 13 0 0  2 2  60  47 3.2 19 6 2 6 30% 31637 469 4132 184%
-c 1  0.15  6 13 0 0  2 2  60  47 3.2 19 6 2 6 30% 31637 469 4132 184%
+c *  0.00  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 49015 450 2250 100%
+c (  0.00  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 49015 450 2250 100%
+c .  0.00  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 49015 450 2250 100%
+c f  0.05  6 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 29269 450 5883 261%
+c e  0.05  6 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 31636 469 4132 184%
+c )  0.05  6 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 31636 469 4132 184%
+c {  0.05  6 0 0 0  0 0   0   0 0.0 0 0 2 6 0% 31636 469 4132 184%
+c }  0.06  6 13 0 0  2 2  60  47 3.2 19 6 2 6 30% 31637 469 4132 184%
+c 1  0.06  6 13 0 0  2 2  60  47 3.2 19 6 2 6 30% 31637 469 4132 184%
 c
 c ---- [ result ] ------------------------------------------------------------
 c
@@ -201,31 +201,31 @@ v -2241 -2242 2243 -2244 -2245 -2246 -2247 -2248 2249 -2250 0
 c
 c ---- [ profiling ] ---------------------------------------------------------
 c
-c           0.14   91.68 %  preprocess
-c           0.13   90.22 %  probe
-c           0.07   45.42 %  factor
-c           0.06   39.79 %  sweep
-c           0.01    5.88 %  parse
-c           0.00    2.99 %  congruence
-c           0.00    1.59 %  search
-c           0.00    1.58 %  focused
-c           0.00    1.38 %  fastel
-c           0.00    1.27 %  substitute
-c           0.00    0.74 %  backbone
-c           0.00    0.42 %  lucky
-c           0.00    0.04 %  extend
+c           0.05   90.00 %  preprocess
+c           0.05   87.28 %  probe
+c           0.03   49.19 %  factor
+c           0.02   33.14 %  sweep
+c           0.00    5.41 %  parse
+c           0.00    3.38 %  search
+c           0.00    3.37 %  focused
+c           0.00    3.18 %  congruence
+c           0.00    2.63 %  fastel
+c           0.00    1.09 %  substitute
+c           0.00    0.68 %  backbone
+c           0.00    0.59 %  lucky
+c           0.00    0.10 %  extend
 c           0.00    0.00 %  simplify
 c =============================================
-c           0.15  100.00 %  total
+c           0.06  100.00 %  total
 c
 c ---- [ statistics ] --------------------------------------------------------
 c
-c conflicts:                               60              400.03 per second
+c conflicts:                               60             1040.24 per second
 c decisions:                              602               10.03 per conflict
 c eliminated:                            1751               78 %  variables
 c factored:                              3633              161 %  variables
 c fast_eliminated:                       1751              100 %  eliminated
-c propagations:                         95098           634037    per second
+c propagations:                         95098          1648746    per second
 c restarts:                                 2               30    interval
 c switched:                                 0                0    interval
 c
@@ -239,11 +239,11 @@ c focused glue 10  used 2 clauses  3.64% accumulated 89.09% tier2
 c
 c ---- [ resources ] ---------------------------------------------------------
 c
-c maximum-resident-set-size:          5898240 bytes          6 MB
-c process-time:                                              0.15 seconds
+c maximum-resident-set-size:          5808128 bytes          6 MB
+c process-time:                                              0.06 seconds
 c
 c ---- [ shutting down ] -----------------------------------------------------
 c
 c exit 10
--- Tempo de CPU total = 0.144284 --
+-- Tempo de CPU total = 0.054684 --
 -- Correto:  True  --

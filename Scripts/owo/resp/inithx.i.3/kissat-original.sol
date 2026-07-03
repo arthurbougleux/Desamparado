@@ -19,7 +19,7 @@ c   inithx.i.3.cnf
 c
 c parsed 'p cnf 19251 866699' header
 c closing input after reading 6023430 bytes (6 MB)
-c finished parsing after 0.04 seconds
+c finished parsing after 0.03 seconds
 c
 c ---- [ solving ] -----------------------------------------------------------
 c
@@ -27,10 +27,10 @@ c  seconds switched rate     size/glue tier1   binary        remaining
 c         MB reductions conflicts size  tier2     irredundant
 c          level restarts redundant glue  trail         variables
 c
-c *  0.04  9 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 433039 621 19251 100%
+c *  0.03  9 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 433039 621 19251 100%
 c lucky in forward setting literals to false
-c l  0.04 10 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 433039 621 19251 100%
-c 1  0.05 10 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 433039 621 19251 100%
+c l  0.03 10 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 433039 621 19251 100%
+c 1  0.03 10 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 433039 621 19251 100%
 c
 c ---- [ result ] ------------------------------------------------------------
 c
@@ -1671,18 +1671,18 @@ v -19248 -19249 -19250 -19251 0
 c
 c ---- [ profiling ] ---------------------------------------------------------
 c
-c           0.04   86.53 %  parse
-c           0.00    4.29 %  lucky
+c           0.03   93.80 %  parse
+c           0.00    1.39 %  lucky
 c           0.00    0.00 %  search
 c           0.00    0.00 %  simplify
 c =============================================
-c           0.05  100.00 %  total
+c           0.03  100.00 %  total
 c
 c ---- [ statistics ] --------------------------------------------------------
 c
 c conflicts:                                0                0.00 per second
 c decisions:                                0                0.00 per conflict
-c propagations:                         19251           385660    per second
+c propagations:                         19251           628440    per second
 c switched:                                 0                0    interval
 c
 c ---- [ glue usage ] --------------------------------------------------------
@@ -1691,11 +1691,11 @@ c no clauses used at all
 c
 c ---- [ resources ] ---------------------------------------------------------
 c
-c maximum-resident-set-size:         14004224 bytes         13 MB
-c process-time:                                              0.05 seconds
+c maximum-resident-set-size:         13869056 bytes         13 MB
+c process-time:                                              0.03 seconds
 c
 c ---- [ shutting down ] -----------------------------------------------------
 c
 c exit 10
--- Tempo de CPU total = 0.043206 --
+-- Tempo de CPU total = 0.027779 --
 -- Correto:  True  --

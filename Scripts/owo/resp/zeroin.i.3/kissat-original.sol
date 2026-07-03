@@ -522,8 +522,8 @@ v -6180 0
 c
 c ---- [ profiling ] ---------------------------------------------------------
 c
-c           0.01   90.64 %  parse
-c           0.00    1.71 %  lucky
+c           0.01   90.81 %  parse
+c           0.00    1.50 %  lucky
 c           0.00    0.00 %  search
 c           0.00    0.00 %  simplify
 c =============================================
@@ -533,7 +533,7 @@ c ---- [ statistics ] --------------------------------------------------------
 c
 c conflicts:                                0                0.00 per second
 c decisions:                                0                0.00 per conflict
-c propagations:                          6180           772017    per second
+c propagations:                          6180           725863    per second
 c switched:                                 0                0    interval
 c
 c ---- [ glue usage ] --------------------------------------------------------
@@ -542,11 +542,11 @@ c no clauses used at all
 c
 c ---- [ resources ] ---------------------------------------------------------
 c
-c maximum-resident-set-size:          6553600 bytes          6 MB
+c maximum-resident-set-size:          6422528 bytes          6 MB
 c process-time:                                              0.01 seconds
 c
 c ---- [ shutting down ] -----------------------------------------------------
 c
 c exit 10
--- Tempo de CPU total = 0.006315 --
+-- Tempo de CPU total = 0.006042 --
 -- Correto:  True  --

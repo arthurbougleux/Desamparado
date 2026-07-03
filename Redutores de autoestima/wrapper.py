@@ -56,6 +56,7 @@ def run_solver_reduced(args, reduced_cnf, reduced_drat):
                 f.write(proof)'''
             
             print('s UNSATISFIABLE')
+            print(time)
         elif rcode == 10:
             # SAT: Remove auxiliary variables from solution
             nv, _ = find_stats(args.input)

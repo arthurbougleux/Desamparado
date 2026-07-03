@@ -64,17 +64,17 @@ v -330 -331 332 -333 -334 -335 -336 -337 -338 -339 -340 -341 -342 343 0
 c
 c ---- [ profiling ] ---------------------------------------------------------
 c
-c           0.02   92.46 %  preprocess
-c           0.02   78.05 %  probe
-c           0.02   71.96 %  sweep
-c           0.00   14.21 %  fastel
-c           0.00    4.87 %  factor
-c           0.00    3.88 %  search
-c           0.00    3.84 %  focused
-c           0.00    2.33 %  parse
-c           0.00    0.66 %  congruence
-c           0.00    0.56 %  lucky
-c           0.00    0.35 %  substitute
+c           0.02   92.27 %  preprocess
+c           0.02   77.63 %  probe
+c           0.02   71.61 %  sweep
+c           0.00   14.44 %  fastel
+c           0.00    5.04 %  factor
+c           0.00    3.99 %  search
+c           0.00    3.95 %  focused
+c           0.00    2.34 %  parse
+c           0.00    0.54 %  lucky
+c           0.00    0.53 %  congruence
+c           0.00    0.24 %  substitute
 c           0.00    0.18 %  backbone
 c           0.00    0.08 %  extend
 c           0.00    0.00 %  simplify
@@ -83,12 +83,12 @@ c           0.02  100.00 %  total
 c
 c ---- [ statistics ] --------------------------------------------------------
 c
-c conflicts:                              196             8649.98 per second
+c conflicts:                              196             8503.25 per second
 c decisions:                              387                1.97 per conflict
 c eliminated:                             197               57 %  variables
 c factored:                               292               85 %  variables
 c fast_eliminated:                        197              100 %  eliminated
-c propagations:                         14756           651220    per second
+c propagations:                         14756           640174    per second
 c restarts:                                 8               24    interval
 c switched:                                 0                0    interval
 c
@@ -107,5 +107,5 @@ c
 c ---- [ shutting down ] -----------------------------------------------------
 c
 c exit 10
--- Tempo de CPU total = 0.022033 --
+-- Tempo de CPU total = 0.021576 --
 -- Correto:  True  --

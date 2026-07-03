@@ -870,7 +870,7 @@ v -10339 0
 c
 c ---- [ profiling ] ---------------------------------------------------------
 c
-c           0.01   90.97 %  parse
+c           0.01   91.13 %  parse
 c           0.00    2.24 %  lucky
 c           0.00    0.00 %  search
 c           0.00    0.00 %  simplify
@@ -881,7 +881,7 @@ c ---- [ statistics ] --------------------------------------------------------
 c
 c conflicts:                                0                0.00 per second
 c decisions:                                0                0.00 per conflict
-c propagations:                         10339           832180    per second
+c propagations:                         10339           835880    per second
 c switched:                                 0                0    interval
 c
 c ---- [ glue usage ] --------------------------------------------------------
@@ -896,5 +896,5 @@ c
 c ---- [ shutting down ] -----------------------------------------------------
 c
 c exit 10
--- Tempo de CPU total = 0.009562 --
+-- Tempo de CPU total = 0.010121 --
 -- Correto:  True  --

@@ -19,7 +19,7 @@ c   le450_5b.cnf
 c
 c parsed 'p cnf 2250 57790' header
 c closing input after reading 384533 bytes (376 KB)
-c finished parsing after 0.01 seconds
+c finished parsing after 0.00 seconds
 c
 c ---- [ solving ] -----------------------------------------------------------
 c
@@ -27,19 +27,19 @@ c  seconds switched rate     size/glue tier1  binary       remaining
 c         MB reductions conflicts size  tier2    irredundant
 c          level restarts redundant glue  trail       variables
 c
-c *  0.01  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 28670 450 2250 100%
-c (  0.01  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 28670 450 2250 100%
-c .  0.01  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 28670 450 2250 100%
-c f  0.10  5 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 20234 450 4571 203%
-c e  0.11  5 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 21143 1277 3162 141%
-c )  0.11  5 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 21143 1277 3162 141%
-c {  0.11  6 0 0 0  0 0   0   0 0.0 0 0 2 6 0% 21143 1277 3162 141%
-c -  0.16  6 17 0 1 69 4 1000 712 2.5 17 7 5 9 23% 21146 1277 3162 141%
-c }  0.16  6 17 1 1 69 4 1000 712 2.5 17 7 5 9 23% 21146 1277 3162 141%
-c [  0.16  6 0 1 1 69 0 1000 712 0.0 0 0 2 6 0% 21146 1277 3162 141%
-c B  0.16  6 25 1 1 69 18 1001 713 2.3 14 6 2 6 21% 21146 1277 3162 141%
-c ]  0.17  6 14 1 1 69 2 1218 906 2.4 18 8 5 11 27% 21146 1277 3162 141%
-c 1  0.17  6 17 1 1 69 4 1218 906 2.5 17 7 5 9 23% 21146 1277 3162 141%
+c *  0.00  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 28670 450 2250 100%
+c (  0.00  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 28670 450 2250 100%
+c .  0.00  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 28670 450 2250 100%
+c f  0.04  5 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 20234 450 4571 203%
+c e  0.04  5 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 21143 1277 3162 141%
+c )  0.04  5 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 21143 1277 3162 141%
+c {  0.04  5 0 0 0  0 0   0   0 0.0 0 0 2 6 0% 21143 1277 3162 141%
+c -  0.05  6 17 0 1 69 4 1000 712 2.5 17 7 5 9 23% 21146 1277 3162 141%
+c }  0.05  6 17 1 1 69 4 1000 712 2.5 17 7 5 9 23% 21146 1277 3162 141%
+c [  0.05  6 0 1 1 69 0 1000 712 0.0 0 0 2 6 0% 21146 1277 3162 141%
+c B  0.05  6 25 1 1 69 18 1001 713 2.3 14 6 2 6 21% 21146 1277 3162 141%
+c ]  0.06  6 14 1 1 69 2 1218 906 2.4 18 8 5 11 27% 21146 1277 3162 141%
+c 1  0.06  6 17 1 1 69 4 1218 906 2.5 17 7 5 9 23% 21146 1277 3162 141%
 c
 c ---- [ result ] ------------------------------------------------------------
 c
@@ -206,33 +206,33 @@ v -2249 -2250 0
 c
 c ---- [ profiling ] ---------------------------------------------------------
 c
-c           0.10   60.44 %  preprocess
-c           0.09   55.16 %  probe
-c           0.06   34.43 %  search
-c           0.05   30.13 %  sweep
-c           0.05   26.83 %  focused
-c           0.04   22.39 %  factor
-c           0.01    7.58 %  stable
-c           0.01    5.20 %  fastel
-c           0.01    4.06 %  parse
-c           0.00    1.44 %  congruence
-c           0.00    0.96 %  reduce
-c           0.00    0.67 %  substitute
-c           0.00    0.53 %  backbone
-c           0.00    0.45 %  lucky
-c           0.00    0.10 %  extend
+c           0.04   62.79 %  preprocess
+c           0.03   57.21 %  probe
+c           0.02   32.68 %  sweep
+c           0.02   32.53 %  search
+c           0.01   25.57 %  focused
+c           0.01   21.54 %  factor
+c           0.00    6.95 %  stable
+c           0.00    5.50 %  fastel
+c           0.00    3.41 %  parse
+c           0.00    1.68 %  congruence
+c           0.00    0.76 %  reduce
+c           0.00    0.73 %  substitute
+c           0.00    0.57 %  backbone
+c           0.00    0.49 %  lucky
+c           0.00    0.09 %  extend
 c           0.00    0.00 %  simplify
 c =============================================
-c           0.17  100.00 %  total
+c           0.06  100.00 %  total
 c
 c ---- [ statistics ] --------------------------------------------------------
 c
-c conflicts:                             1218             7032.13 per second
+c conflicts:                             1218            20878.69 per second
 c decisions:                             4708                3.87 per conflict
 c eliminated:                            1409               63 %  variables
 c factored:                              2321              103 %  variables
 c fast_eliminated:                       1409              100 %  eliminated
-c propagations:                        397947          2297549    per second
+c propagations:                        397947          6821520    per second
 c reductions:                               1             1218    interval
 c rephased:                                 1             1218    interval
 c restarts:                                69               18    interval
@@ -253,11 +253,11 @@ c stable glue 9 used 39 clauses  9.01% accumulated 90.99% tier2
 c
 c ---- [ resources ] ---------------------------------------------------------
 c
-c maximum-resident-set-size:          5611520 bytes          5 MB
-c process-time:                                              0.17 seconds
+c maximum-resident-set-size:          5705728 bytes          5 MB
+c process-time:                                              0.06 seconds
 c
 c ---- [ shutting down ] -----------------------------------------------------
 c
 c exit 10
--- Tempo de CPU total = 0.166325 --
+-- Tempo de CPU total = 0.056687 --
 -- Correto:  True  --

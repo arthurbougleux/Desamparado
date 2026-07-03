@@ -26,7 +26,7 @@ for file in $EXPDIR/*.col; do
 
     python3 col.py $file $nome.cnf $k
 
-    for solver in "kissat-original"; do
+    for solver in "kissat-original" "kissat-mab-dc"; do
 
         echo "-- Solver:$solver --" >> $solver.sol
         echo "-- $k-Coloring --" >> $solver.sol
@@ -39,11 +39,23 @@ for file in $EXPDIR/*.col; do
         
     done
 
+    solver="hKis"
+    echo "-- Solver:$solver --" >> $solver.sol
+    echo "-- $k-Coloring --" >> $solver.sol
+
+    ./starexec_run_bva $nome.cnf tmp >> $solver.sol 2>&1
+    echo "$solver started"
+
+    out=$(python3 verify_col.py $file $solver.sol $k)
+    echo "-- Correto: " $out " --" >> $solver.sol
+
+
     mkdir $nome
 
     mv *.cnf $nome/
     mv *.sol $nome/
     mv *.gbbs $nome/
     mv $nome/ resp/
+    rm *.drat
 
 done

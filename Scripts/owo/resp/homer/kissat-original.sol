@@ -19,7 +19,7 @@ c   homer.cnf
 c
 c parsed 'p cnf 7293 42915' header
 c closing input after reading 327242 bytes (320 KB)
-c finished parsing after 0.01 seconds
+c finished parsing after 0.00 seconds
 c
 c ---- [ solving ] -----------------------------------------------------------
 c
@@ -27,15 +27,15 @@ c  seconds switched rate     size/glue tier1  binary       remaining
 c         MB reductions conflicts size  tier2    irredundant
 c          level restarts redundant glue  trail       variables
 c
-c *  0.01  5 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 21164 561 7293 100%
-c (  0.01  5 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 21164 561 7293 100%
-c .  0.01  5 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 21164 561 7293 100%
-c f  0.10  6 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 15666 561 8502 117%
-c e  0.20  7 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 11698 1522 3921 54%
-c )  0.20  7 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 11698 1522 3921 54%
-c {  0.20  7 0 0 0  0 0   0   0 0.0 0 0 2 6 0% 11698 1522 3921 54%
-c }  0.20  7 21 0 0  8 9 682 461 1.3 13 10 9 11 5% 11698 1522 3921 54%
-c 1  0.20  7 21 0 0  8 9 682 461 1.3 13 10 9 11 5% 11698 1522 3921 54%
+c *  0.00  5 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 21164 561 7293 100%
+c (  0.00  5 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 21164 561 7293 100%
+c .  0.00  5 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 21164 561 7293 100%
+c f  0.03  6 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 15666 561 8502 117%
+c e  0.07  7 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 11698 1522 3921 54%
+c )  0.07  7 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 11698 1522 3921 54%
+c {  0.07  7 0 0 0  0 0   0   0 0.0 0 0 2 6 0% 11698 1522 3921 54%
+c }  0.07  7 21 0 0  8 9 682 461 1.3 13 10 9 11 5% 11698 1522 3921 54%
+c 1  0.07  7 21 0 0  8 9 682 461 1.3 13 10 9 11 5% 11698 1522 3921 54%
 c
 c ---- [ result ] ------------------------------------------------------------
 c
@@ -561,34 +561,34 @@ v 7288 7289 -7290 7291 -7292 7293 0
 c
 c ---- [ profiling ] ---------------------------------------------------------
 c
-c           0.19   92.51 %  preprocess
-c           0.09   46.36 %  probe
-c           0.09   46.06 %  fastel
-c           0.07   33.50 %  sweep
-c           0.02    9.93 %  factor
-c           0.01    3.99 %  parse
-c           0.00    2.07 %  search
-c           0.00    2.06 %  focused
-c           0.00    1.73 %  congruence
-c           0.00    0.81 %  lucky
-c           0.00    0.71 %  substitute
-c           0.00    0.48 %  backbone
-c           0.00    0.12 %  extend
+c           0.06   88.32 %  preprocess
+c           0.04   50.45 %  fastel
+c           0.03   37.72 %  probe
+c           0.02   27.78 %  sweep
+c           0.01    7.49 %  factor
+c           0.00    6.11 %  search
+c           0.00    6.09 %  focused
+c           0.00    3.41 %  parse
+c           0.00    1.51 %  congruence
+c           0.00    0.87 %  lucky
+c           0.00    0.53 %  substitute
+c           0.00    0.41 %  backbone
+c           0.00    0.30 %  extend
 c           0.00    0.00 %  simplify
 c =============================================
-c           0.20  100.00 %  total
+c           0.07  100.00 %  total
 c
 c ---- [ statistics ] --------------------------------------------------------
 c
 c chronological:                            1                0 %  conflicts
-c conflicts:                              682             3334.02 per second
+c conflicts:                              682             9515.31 per second
 c decisions:                             8058               11.82 per conflict
 c eliminated:                            4581               63 %  variables
 c factored:                              1209               17 %  variables
 c fast_eliminated:                       4581              100 %  eliminated
 c fast_strengthened:                      119              100 %  per strengthened
 c fast_subsumed:                          132              100 %  per subsumed
-c propagations:                         97083           474599    per second
+c propagations:                         97083          1354508    per second
 c restarts:                                 8               85    interval
 c strengthened:                           119                0 %  checks
 c subsumed:                               132                0 %  checks
@@ -602,11 +602,11 @@ c focused glue 11 used 116 clauses  7.73% accumulated 92.80% tier2
 c
 c ---- [ resources ] ---------------------------------------------------------
 c
-c maximum-resident-set-size:          7577600 bytes          7 MB
-c process-time:                                              0.20 seconds
+c maximum-resident-set-size:          7925760 bytes          8 MB
+c process-time:                                              0.07 seconds
 c
 c ---- [ shutting down ] -----------------------------------------------------
 c
 c exit 10
--- Tempo de CPU total = 0.196608 --
+-- Tempo de CPU total = 0.066700 --
 -- Correto:  False  --
