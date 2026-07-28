@@ -13,7 +13,7 @@ def read_col(filename):
             break
 
 
-    g = [ [0 for i in range(n)] for i in range(n) ]
+    g = [ [0 for _ in range(n)] for _ in range(n) ]
 
     m = 0
 
@@ -30,7 +30,6 @@ def read_col(filename):
             g[j][i] = 1
     
     file.close()
-
     return Namespace(g=g, n=n, m=m)
 
 def unpack_lit(l, k):
@@ -40,6 +39,35 @@ def unpack_lit(l, k):
         return no, cor
 
 def read_sol(file, k):
+
+    if file.endswith('.gbbs.sol'):
+        return read_gbbs_sol(file)
+    
+    return read_sat_sol(file, k)
+
+def read_gbbs_sol(file):
+
+    sol = {}
+
+    with open(file, "r") as fsol:
+
+        for line in fsol:
+            if not line.startswith('###') : break
+
+        for line in fsol:
+            if line.startswith('num_colors'):
+
+                k = int(line.split()[2])
+                continue
+
+            if line.startswith('#') : break
+
+            no, cor = list(map(int, line.split()))
+            sol[no] = cor
+
+        return sol
+
+def read_sat_sol(file, k):
 
     with open(file, "r") as fsol:
 
@@ -66,11 +94,12 @@ def verify_coloring(inst, sol):
 
         for j in range(inst.n):
 
-            if inst.g[i][j] and sol[j] == c1:
+            if inst.g[i][j] and i != j and sol[j] == c1:
                 correto = False
                 break
-        
+
         if not correto : break
+
     return correto
 
 def calc_nvars(inst):
@@ -86,8 +115,8 @@ def calc_nclauses(inst):
                 if g[i][j]:
                     nclauses += k'''
     
-    nclauses += inst.m * inst.k
-    return nclauses
+    nclauses += (inst.m/2) * inst.k
+    return int(nclauses)
 
 #O nó i tem a cor j
 def var(i,j,k):

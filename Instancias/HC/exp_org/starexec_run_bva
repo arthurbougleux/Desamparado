@@ -3,7 +3,7 @@
 
 SBVA=./bva
 SOLVER=./kissat
-SOLVERARGS="target=1 walkinitially=true chrono=true relaxed"
+SOLVERARGS="target=1 walkinitially=true chrono=true"
 
 OUTER_TIMEOUT=400
 INNER_TIMEOUT=200
