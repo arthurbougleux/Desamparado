@@ -7,11 +7,13 @@ cd resp
 touch $out
 echo "Nome,N,M,K,GBBS,Tempo GBBS,Kissat,Tempo,Kissat-Mab,Tempo,hKis,Tempo," > $out
 
+##
 for dir in $( ls -d */ ); do
 
     inst="${dir%"/"}"
     pref=$dir$inst
 
+    
     n=$(cat $pref$gbbs_out | grep "### n:" | grep -o '[0-9]\+')
     m=$(cat $pref$gbbs_out | grep "### m:" | grep -o '[0-9]\+')
 
