@@ -11,12 +11,12 @@ def read_col(filename):
         if l.startswith("p"):
             n, _ = map(int, l.split()[2:])
             break
+        if not l : exit(1)
 
 
     g = [ [0 for _ in range(n)] for _ in range(n) ]
 
     m = 0
-
     for l in file:
 
         if l.startswith("c "):
@@ -116,6 +116,7 @@ def calc_nclauses(inst):
                     nclauses += k'''
     
     nclauses += (inst.m/2) * inst.k
+    #nclauses += inst.n * ((inst.k * (inst.k-1)) / 2)
     return int(nclauses)
 
 #O nó i tem a cor j
@@ -137,6 +138,14 @@ def all_colored(file, inst):
         cl += endcl
         file.write(cl)
 
+def single_color(file, inst):
+
+    for i in range(inst.n):
+        for j in range(inst.k):
+            for k in range(j):
+
+                    file.write("-" + var(i,j, inst.k) + " -" + var(i, k, inst.k) + endcl)
+
 def no_shared_colors(file, inst):
 
     for i in range(inst.n):
@@ -146,7 +155,6 @@ def no_shared_colors(file, inst):
 
                     for c in range(inst.k):
                         file.write("-" + var(i,c, inst.k) + " -" + var(j, c, inst.k) + endcl)
-
 
 def colk_to_cnf(g, n, m, k, out, original):
 
