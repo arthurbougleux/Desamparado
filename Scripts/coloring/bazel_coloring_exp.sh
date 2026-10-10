@@ -80,13 +80,13 @@ for file in $EXPDIR/*.col; do
 done
 
 ./collect.sh
-collector_id+=$(python3 db_insert.py gen_csv collect.sh )
-echo $collector_id
+collector_id+=$(python3 db_insert.py gen_csv resp.csv)
+#echo $collector_id
 
 read -ra ids <<< "$sat_solve_ids"
 
 for id in "${ids[@]}"; do
     #echo $id
     #echo $collector_id
-    python3 db_insert.py used_in_gen_csv $id $collector_id
+    python3 db_insert.py used_in_gen_csv $id $collector_id 1> /dev/null
 done

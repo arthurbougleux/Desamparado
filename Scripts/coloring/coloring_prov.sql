@@ -57,7 +57,7 @@ CREATE TABLE sat_solve (
 
 CREATE TABLE gen_csv (
     id         INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-	script  VARCHAR(50),
+	output  VARCHAR(50),
     data   TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -66,3 +66,4 @@ CREATE TABLE used_in_gen_csv (
     collector_id         INT references gen_csv,     
 	PRIMARY KEY (solver_id, collector_id)
 );
+

@@ -29,7 +29,7 @@ TABELAS = {
     "sat_reduc": ["conversor", "anterior", "argumentos", "input", "output"],
     "sat_solve": ["conversor", "anterior", "argumentos", "input", "output", "correto"],
     "used_in_gen_csv": ["solver_id", "collector_id"],
-    "gen_csv": ["script"] 
+    "gen_csv": ["output"] 
     }
 
 
