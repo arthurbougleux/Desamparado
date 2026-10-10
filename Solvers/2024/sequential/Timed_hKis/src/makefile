@@ -1,1 +1,0 @@
-/home/arthur/Desktop/Desamparado/Solvers/2024/sequential/Timed_hKis/makefile

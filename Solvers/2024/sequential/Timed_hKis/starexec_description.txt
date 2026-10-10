@@ -1,1 +1,0 @@
-PSIDS implemented on top of Kissat 3.1.1
